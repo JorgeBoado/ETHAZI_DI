@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2041
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ETHAZI_DI", "ETHAZI_DI\ETHAZI_DI.vbproj", "{0E40B768-7F40-41D8-8C3F-D1D71841B6A8}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ETHAZI_DI", "ETHAZI_DI\ETHAZI_DI.vbproj", "{BA428013-67A1-470A-A069-5558E6F4A53C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0E40B768-7F40-41D8-8C3F-D1D71841B6A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E40B768-7F40-41D8-8C3F-D1D71841B6A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E40B768-7F40-41D8-8C3F-D1D71841B6A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E40B768-7F40-41D8-8C3F-D1D71841B6A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA428013-67A1-470A-A069-5558E6F4A53C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA428013-67A1-470A-A069-5558E6F4A53C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA428013-67A1-470A-A069-5558E6F4A53C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA428013-67A1-470A-A069-5558E6F4A53C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1343C53D-32F5-4F1B-94B1-C0FCC3EF6D77}
 	EndGlobalSection
 EndGlobal
