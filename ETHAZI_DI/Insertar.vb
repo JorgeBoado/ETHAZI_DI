@@ -4,7 +4,7 @@ Public Class Insertar
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Conexion.conectar()
         Dim sql As String
-        sql = "Insert into lodging (`signatura`, `name`, `description`, `type`, `phone`, `locality`, `address`, `marks`, `postalcode`, `municipalitycode`, `coordinates`, `category`, `turismemail`, `web`, `capacity`, `friendlyurl`, `physicalurl`, `zipfile`) values (@signatura, @name, @description, @type, @phone, @locality, @address, @marks, @postalcode, @municipalitycode, @coordinates, @category, @turismemail, @web, @capacity, @friendlyurl, @physicalurl, @zipfile)"
+        sql = "Insert into lodging (`signatura`, `name`, `description`, `type`, `phone`, `address`, `marks`, `postalcode`, `municipalitycode`, `coordinates`, `category`, `turismemail`, `web`, `capacity`, `friendlyurl`, `physicalurl`, `zipfile`) values (@signatura, @name, @description, @type, @phone, @address, @marks, @postalcode, @municipalitycode, @coordinates, @category, @turismemail, @web, @capacity, @friendlyurl, @physicalurl, @zipfile)"
 
         Dim cmd As New MySqlCommand(sql, Conexion.conection)
         cmd.Parameters.AddWithValue("@signatura", Me.Text_firma.Text)
@@ -12,7 +12,6 @@ Public Class Insertar
         cmd.Parameters.AddWithValue("@description", Me.Text_desc.Text)
         cmd.Parameters.AddWithValue("@type", Me.Text_Tipo.Text)
         cmd.Parameters.AddWithValue("@phone", Me.Text_tel.Text)
-        cmd.Parameters.AddWithValue("@locality", Me.Text_loc.Text)
         cmd.Parameters.AddWithValue("@address", Me.Text_direccion.Text)
         cmd.Parameters.AddWithValue("@marks", Me.Text_marca.Text)
         cmd.Parameters.AddWithValue("@postalcode", Me.ComboBox1.SelectedItem)
@@ -72,4 +71,16 @@ Public Class Insertar
         e.Handled = True
     End Sub
 
+    Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Me.Close()
+            Form2.Show()
+        End If
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+        Form2.Show()
+    End Sub
 End Class

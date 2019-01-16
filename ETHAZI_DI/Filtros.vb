@@ -15,7 +15,7 @@ Public Class Filtros
 
 
         Form2.Show()
-        Form2.filtrar(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text)
+        Form2.filtrar(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, ComboBox1.SelectedItem)
         Me.Hide()
     End Sub
 
@@ -34,5 +34,27 @@ Public Class Filtros
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Form2.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub Filtros_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Me.Close()
+            Form2.Show()
+        End If
+
+    End Sub
+
+    Private Sub Filtros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Conexion.conectar()
+        Dim sql As String
+        sql = "Select distinct type from lodging"
+        Dim cmd As New MySqlCommand(sql, Conexion.conection)
+        Dim dr As MySqlDataReader
+        dr = cmd.ExecuteReader
+        While dr.Read
+            ComboBox1.Items.Add(dr.Item(0))
+        End While
+
+
     End Sub
 End Class

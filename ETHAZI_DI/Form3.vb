@@ -2,8 +2,10 @@
 Public Class Form3
     Private primercombo As String
     Private segundocombo As String
-
+    Private IDfijo As Integer
+    Private editable As Boolean
     Public Sub datosACargar(id As Integer)
+        IDfijo = id
         Conexion.conectar()
         Dim sql As String = "Select * from lodging where id= " & id
         Dim cmd As New MySqlCommand(sql, Conexion.conection)
@@ -36,71 +38,66 @@ Public Class Form3
                     Me.Text_tel.Text = dr.Item(5)
                 End If
                 If IsDBNull(dr.Item(6)) Or dr.Item(6) Is Nothing Then
-                    Me.Text_loc.Text = ""
-                Else
-                    Me.Text_loc.Text = dr.Item(6)
-                End If
-                If IsDBNull(dr.Item(7)) Or dr.Item(7) Is Nothing Then
                     Me.Text_direccion.Text = ""
                 Else
-                    Me.Text_direccion.Text = dr.Item(7)
+                    Me.Text_direccion.Text = dr.Item(6)
                 End If
-                If IsDBNull(dr.Item(8)) Or dr.Item(8) Is Nothing Then
+                If IsDBNull(dr.Item(7)) Or dr.Item(7) Is Nothing Then
                     Me.Text_marca.Text = ""
                 Else
-                    Me.Text_marca.Text = dr.Item(8)
+                    Me.Text_marca.Text = dr.Item(7)
                 End If
-                If IsDBNull(dr.Item(9)) Or dr.Item(9) Is Nothing Then
+                If IsDBNull(dr.Item(8)) Or dr.Item(8) Is Nothing Then
                     ComboBox1.Text = ""
                 Else
-                    ComboBox1.Text = dr.Item(9)
+                    ComboBox1.Text = dr.Item(8)
                     primercombo = ComboBox1.Text
                 End If
-                If IsDBNull(dr.Item(10)) Or dr.Item(10) Is Nothing Then
+                If IsDBNull(dr.Item(9)) Or dr.Item(9) Is Nothing Then
                     ComboBox2.Text = ""
                 Else
-                    ComboBox2.Text = dr.Item(10)
+                    ComboBox2.Text = dr.Item(9)
                     segundocombo = ComboBox2.Text
                 End If
-                If IsDBNull(dr.Item(11)) Or dr.Item(11) Is Nothing Then
+                If IsDBNull(dr.Item(10)) Or dr.Item(10) Is Nothing Then
                     Me.Text_coord.Text = ""
                 Else
-                    Me.Text_coord.Text = dr.Item(11)
+                    Me.Text_coord.Text = dr.Item(10)
                 End If
-                If IsDBNull(dr.Item(12)) Or dr.Item(12) Is Nothing Then
+                If IsDBNull(dr.Item(11)) Or dr.Item(11) Is Nothing Then
                     Me.txt_categoria.Text = ""
                 Else
-                    Me.txt_categoria.Text = dr.Item(12)
+                    Me.txt_categoria.Text = dr.Item(11)
                 End If
-                If IsDBNull(dr.Item(13)) Or dr.Item(13) Is Nothing Then
+                If IsDBNull(dr.Item(12)) Or dr.Item(12) Is Nothing Then
                     Me.Text_email.Text = ""
                 Else
-                    Me.Text_email.Text = dr.Item(13)
+                    Me.Text_email.Text = dr.Item(12)
                 End If
-                If IsDBNull(dr.Item(14)) Or dr.Item(14) Is Nothing Then
+                If IsDBNull(dr.Item(13)) Or dr.Item(13) Is Nothing Then
                     Me.Text_web.Text = ""
                 Else
-                    Me.Text_web.Text = dr.Item(14)
+                    Me.Text_web.Text = dr.Item(13)
                 End If
-                If IsDBNull(dr.Item(15)) Or dr.Item(15) Is Nothing Then
+                If IsDBNull(dr.Item(14)) Or dr.Item(14) Is Nothing Then
                     Me.Text_capacity.Text = ""
                 Else
-                    Me.Text_capacity.Text = dr.Item(15)
+                    Me.Text_capacity.Text = dr.Item(14)
                 End If
-                If IsDBNull(dr.Item(16)) Or dr.Item(16) Is Nothing Then
+                If IsDBNull(dr.Item(15)) Or dr.Item(15) Is Nothing Then
                     Me.Text_FUrl.Text = ""
                 Else
-                    Me.Text_FUrl.Text = dr.Item(16)
+                    Me.Text_FUrl.Text = dr.Item(15)
                 End If
-                If IsDBNull(dr.Item(17)) Or dr.Item(17) Is Nothing Then
+                If IsDBNull(dr.Item(16)) Or dr.Item(16) Is Nothing Then
                     Me.Text_Url.Text = ""
                 Else
-                    Me.Text_Url.Text = dr.Item(17)
+                    Me.Text_Url.Text = dr.Item(16)
                 End If
-                If IsDBNull(dr.Item(18)) Or dr.Item(18) Is Nothing Then
+                If IsDBNull(dr.Item(17)) Or dr.Item(17) Is Nothing Then
                     Me.Text_zipfile.Text = ""
                 Else
-                    Me.Text_zipfile.Text = dr.Item(18)
+                    Me.Text_zipfile.Text = dr.Item(17)
                 End If
             End While
         End If
@@ -111,9 +108,14 @@ Public Class Form3
    
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        If Not editable Then
+            datosACargar(IDfijo)
+            Button2.PerformClick()
+        Else
+            Form2.Show()
+            Me.Close()
+        End If
 
-        Form2.Show()
-        Me.Close()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -142,7 +144,7 @@ Public Class Form3
             Text_email.Enabled = False
             Text_firma.Enabled = False
             Text_FUrl.Enabled = False
-            Text_loc.Enabled = False
+
             Text_marca.Enabled = False
             Text_nombre.Enabled = False
             Text_tel.Enabled = False
@@ -153,9 +155,12 @@ Public Class Form3
             txt_categoria.Enabled = False
             ComboBox2.Enabled = False
             Button2.Text = "Editar"
-            sql = "UPDATE lodging SET signatura='" & Me.Text_firma.Text & "',name='" & Me.Text_nombre.Text & "',description='" & Me.Text_desc.Text & "',type='" & Me.Text_Tipo.Text & "',phone='" & Me.Text_tel.Text & "',locality='" & Me.Text_loc.Text & "',address='" & Me.Text_direccion.Text & "',marks='" & Me.Text_marca.Text & "',postalcode='" & ComboBox1.SelectedItem & "',municipalitycode='" & Me.ComboBox2.SelectedItem & "',coordinates='" & Me.Text_coord.Text & "',category='" & Me.txt_categoria.Text & "',turismemail='" & Me.Text_email.Text & "',web='" & Me.Text_web.Text & "',capacity=" & Me.Text_capacity.Text & ",friendlyurl='" & Me.Text_FUrl.Text & "',physicalurl='" & Me.Text_Url.Text & "',zipfile='" & Me.Text_zipfile.Text & "' WHERE id = " & Me.TextBox2.Text
+            Button1.Text = "Volver a la vista global"
+            editable = True
+            sql = "UPDATE lodging SET signatura='" & Me.Text_firma.Text & "',name='" & Me.Text_nombre.Text & "',description='" & Me.Text_desc.Text & "',type='" & Me.Text_Tipo.Text & "',phone='" & Me.Text_tel.Text & "',address='" & Me.Text_direccion.Text & "',marks='" & Me.Text_marca.Text & "',postalcode='" & ComboBox1.SelectedItem & "',municipalitycode='" & Me.ComboBox2.SelectedItem & "',coordinates='" & Me.Text_coord.Text & "',category='" & Me.txt_categoria.Text & "',turismemail='" & Me.Text_email.Text & "',web='" & Me.Text_web.Text & "',capacity=" & Me.Text_capacity.Text & ",friendlyurl='" & Me.Text_FUrl.Text & "',physicalurl='" & Me.Text_Url.Text & "',zipfile='" & Me.Text_zipfile.Text & "' WHERE id = " & Me.TextBox2.Text
             Dim cmd As New MySqlCommand(sql, Conexion.conection)
             cmd.ExecuteNonQuery()
+
 
         Else
             Text_capacity.Enabled = True
@@ -167,7 +172,7 @@ Public Class Form3
             Text_firma.Enabled = True
             Text_firma.Enabled = True
             Text_FUrl.Enabled = True
-            Text_loc.Enabled = True
+
             Text_marca.Enabled = True
             Text_nombre.Enabled = True
             Text_tel.Enabled = True
@@ -177,8 +182,9 @@ Public Class Form3
             Text_zipfile.Enabled = True
             txt_categoria.Enabled = True
             ComboBox2.Enabled = True
+            editable = False
             Button2.Text = "Guardar cambios"
-
+            Button1.Text = "Cancelar cambios"
 
         End If
 
@@ -188,10 +194,14 @@ Public Class Form3
 
     End Sub
 
-    Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+ 
+   
+    Private Sub Form3_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Me.Close()
+            Form2.Show()
+        End If
 
     End Sub
 
- 
-   
 End Class

@@ -9,6 +9,7 @@ Public Class Form1
     Dim sql As String
     Dim usuarios As New ArrayList
     Dim passwords As New ArrayList
+    Dim ojito As Boolean = True
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         'If TextBox1.Text = "" Then
@@ -35,20 +36,26 @@ Public Class Form1
             End If
         Next
         If nombrecorrecto And passcorrecta Then
+
             Form2.Show()
+            Form2.Hide()
+            FormCarga.Show()
             TextBox1.Text = ""
             TextBox2.Text = ""
             Me.Label3.Text = ""
             Me.TextBox1.Focus()
             Me.Hide()
         Else
-            Me.Label3.Text = "Usuario y contraseña incorrectos"
+            Me.Label3.Text = "Usuario y/o contraseña incorrectos"
+            Me.TextBox1.Text = ""
         End If
         Label3.Visible = True
     End Sub
     Friend conexion As MySqlConnection
     Dim das1 As New DataSet
-
+    Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
     
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.TextBox2.PasswordChar = "*"
@@ -110,7 +117,19 @@ Public Class Form1
         Return res.ToLower
     End Function
 
-   
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        If ojito Then
+            PictureBox2.Image = My.Resources.pupila_del_ojo
+            TextBox2.PasswordChar = ""
+            ojito = False
+        Else
+            PictureBox2.Image = My.Resources.ojo_cerrado
+            TextBox2.PasswordChar = "*"
+            ojito = True
+        End If
+    End Sub
 
-   
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Application.Exit()
+    End Sub
 End Class

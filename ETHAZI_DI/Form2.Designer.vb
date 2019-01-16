@@ -28,10 +28,10 @@ Partial Class Form2
         Me.HolaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QueTalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerDetalleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FiltrarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.FiltrarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,20 +80,30 @@ Partial Class Form2
         'QueTalToolStripMenuItem
         '
         Me.QueTalToolStripMenuItem.Name = "QueTalToolStripMenuItem"
-        Me.QueTalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.QueTalToolStripMenuItem.Text = "Insertar"
+        Me.QueTalToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
+        Me.QueTalToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.QueTalToolStripMenuItem.Text = "&Insertar"
         '
         'VerDetalleToolStripMenuItem
         '
         Me.VerDetalleToolStripMenuItem.Name = "VerDetalleToolStripMenuItem"
-        Me.VerDetalleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.VerDetalleToolStripMenuItem.Text = "Ver detalle"
+        Me.VerDetalleToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
+        Me.VerDetalleToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.VerDetalleToolStripMenuItem.Text = "&Ver detalle"
+        '
+        'FiltrarToolStripMenuItem
+        '
+        Me.FiltrarToolStripMenuItem.Name = "FiltrarToolStripMenuItem"
+        Me.FiltrarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
+        Me.FiltrarToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.FiltrarToolStripMenuItem.Text = "&Filtrar"
         '
         'BorrarToolStripMenuItem
         '
         Me.BorrarToolStripMenuItem.Name = "BorrarToolStripMenuItem"
-        Me.BorrarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BorrarToolStripMenuItem.Text = "Eliminar"
+        Me.BorrarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
+        Me.BorrarToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.BorrarToolStripMenuItem.Text = "&Eliminar"
         '
         'CerrarSesionToolStripMenuItem
         '
@@ -111,12 +121,6 @@ Partial Class Form2
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
         '
-        'FiltrarToolStripMenuItem
-        '
-        Me.FiltrarToolStripMenuItem.Name = "FiltrarToolStripMenuItem"
-        Me.FiltrarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.FiltrarToolStripMenuItem.Text = "Filtrar"
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -126,6 +130,8 @@ Partial Class Form2
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.PictureBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form2"
         Me.Text = "Form2"

@@ -39,12 +39,10 @@ Partial Class Insertar
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Text_firma = New System.Windows.Forms.TextBox()
         Me.Text_FUrl = New System.Windows.Forms.TextBox()
-        Me.Text_loc = New System.Windows.Forms.TextBox()
         Me.Text_coord = New System.Windows.Forms.TextBox()
         Me.Text_capacity = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -79,7 +77,7 @@ Partial Class Insertar
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(54, 18)
         Me.Label15.TabIndex = 89
-        Me.Label15.Text = "Marca:"
+        Me.Label15.Text = "Marks:"
         '
         'Text_marca
         '
@@ -103,9 +101,9 @@ Partial Class Insertar
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.Location = New System.Drawing.Point(140, 290)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(84, 18)
+        Me.Label19.Size = New System.Drawing.Size(55, 18)
         Me.Label19.TabIndex = 86
-        Me.Label19.Text = "Archivo zip:"
+        Me.Label19.Text = "ZipFile:"
         '
         'Text_Url
         '
@@ -121,9 +119,9 @@ Partial Class Insertar
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.Location = New System.Drawing.Point(520, 290)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(69, 18)
+        Me.Label18.Size = New System.Drawing.Size(86, 18)
         Me.Label18.TabIndex = 84
-        Me.Label18.Text = "Url fisica:"
+        Me.Label18.Text = "PhysicalUrl:"
         '
         'txt_categoria
         '
@@ -139,9 +137,9 @@ Partial Class Insertar
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.Location = New System.Drawing.Point(520, 260)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(76, 18)
+        Me.Label17.Size = New System.Drawing.Size(72, 18)
         Me.Label17.TabIndex = 82
-        Me.Label17.Text = "Categoria:"
+        Me.Label17.Text = "Category:"
         '
         'Label14
         '
@@ -149,9 +147,9 @@ Partial Class Insertar
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(143, 242)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(74, 36)
+        Me.Label14.Size = New System.Drawing.Size(84, 36)
         Me.Label14.TabIndex = 80
-        Me.Label14.Text = "Codigo " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "municipal:"
+        Me.Label14.Text = "Municipality" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Code:"
         '
         'Button1
         '
@@ -194,9 +192,9 @@ Partial Class Insertar
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(143, 214)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(41, 18)
+        Me.Label13.Size = New System.Drawing.Size(44, 18)
         Me.Label13.TabIndex = 73
-        Me.Label13.Text = "Tipo:"
+        Me.Label13.Text = "Type:"
         '
         'Text_firma
         '
@@ -213,14 +211,6 @@ Partial Class Insertar
         Me.Text_FUrl.Name = "Text_FUrl"
         Me.Text_FUrl.Size = New System.Drawing.Size(202, 24)
         Me.Text_FUrl.TabIndex = 10
-        '
-        'Text_loc
-        '
-        Me.Text_loc.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Text_loc.Location = New System.Drawing.Point(630, 159)
-        Me.Text_loc.Name = "Text_loc"
-        Me.Text_loc.Size = New System.Drawing.Size(202, 24)
-        Me.Text_loc.TabIndex = 8
         '
         'Text_coord
         '
@@ -244,9 +234,9 @@ Partial Class Insertar
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(520, 227)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(50, 18)
+        Me.Label11.Size = New System.Drawing.Size(74, 18)
         Me.Label11.TabIndex = 66
-        Me.Label11.Text = "Firma:"
+        Me.Label11.Text = "Signature:"
         '
         'Label10
         '
@@ -258,25 +248,15 @@ Partial Class Insertar
         Me.Label10.TabIndex = 65
         Me.Label10.Text = "Friendly url:"
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(520, 165)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(75, 18)
-        Me.Label9.TabIndex = 64
-        Me.Label9.Text = "Localidad:"
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(520, 134)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(102, 18)
+        Me.Label8.Size = New System.Drawing.Size(93, 18)
         Me.Label8.TabIndex = 63
-        Me.Label8.Text = "Coordenadas:"
+        Me.Label8.Text = "Coordinates:"
         '
         'Label7
         '
@@ -284,9 +264,9 @@ Partial Class Insertar
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(520, 101)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(104, 18)
+        Me.Label7.Size = New System.Drawing.Size(91, 18)
         Me.Label7.TabIndex = 62
-        Me.Label7.Text = "Codigo postal:"
+        Me.Label7.Text = "Postal code:"
         '
         'Label6
         '
@@ -294,9 +274,9 @@ Partial Class Insertar
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(520, 67)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(82, 18)
+        Me.Label6.Size = New System.Drawing.Size(69, 18)
         Me.Label6.TabIndex = 61
-        Me.Label6.Text = "Capacidad:"
+        Me.Label6.Text = "Capacity:"
         '
         'Label5
         '
@@ -324,9 +304,9 @@ Partial Class Insertar
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(143, 120)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 18)
+        Me.Label3.Size = New System.Drawing.Size(66, 18)
         Me.Label3.TabIndex = 58
-        Me.Label3.Text = "Direccion:"
+        Me.Label3.Text = "Address:"
         '
         'Label2
         '
@@ -334,9 +314,9 @@ Partial Class Insertar
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(143, 91)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(70, 18)
+        Me.Label2.Size = New System.Drawing.Size(55, 18)
         Me.Label2.TabIndex = 57
-        Me.Label2.Text = "Telefono:"
+        Me.Label2.Text = "Phone:"
         '
         'Label1
         '
@@ -344,9 +324,9 @@ Partial Class Insertar
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(371, 15)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 18)
+        Me.Label1.Size = New System.Drawing.Size(52, 18)
         Me.Label1.TabIndex = 56
-        Me.Label1.Text = "Nombre:"
+        Me.Label1.Text = "Name:"
         '
         'Text_web
         '
@@ -428,12 +408,10 @@ Partial Class Insertar
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Text_firma)
         Me.Controls.Add(Me.Text_FUrl)
-        Me.Controls.Add(Me.Text_loc)
         Me.Controls.Add(Me.Text_coord)
         Me.Controls.Add(Me.Text_capacity)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -447,6 +425,7 @@ Partial Class Insertar
         Me.Controls.Add(Me.Text_direccion)
         Me.Controls.Add(Me.Text_tel)
         Me.Controls.Add(Me.Text_nombre)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Insertar"
         Me.Text = "Insertar"
         Me.ResumeLayout(False)
@@ -470,12 +449,10 @@ Partial Class Insertar
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Text_firma As System.Windows.Forms.TextBox
     Friend WithEvents Text_FUrl As System.Windows.Forms.TextBox
-    Friend WithEvents Text_loc As System.Windows.Forms.TextBox
     Friend WithEvents Text_coord As System.Windows.Forms.TextBox
     Friend WithEvents Text_capacity As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label

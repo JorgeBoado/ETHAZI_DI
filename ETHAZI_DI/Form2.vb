@@ -13,6 +13,7 @@ Public Class Form2
     Dim das1 As New DataSet
 
     Private Sub mostrarTabla()
+
         Try
             'Para server
             Dim cadenaconexion As String = "server=kasserver.synology.me;database=reto_gp4;user id=gp4;port=3307; password=MmlYOc8DvJXQns7D;"
@@ -32,7 +33,7 @@ Public Class Form2
         Label1.BackColor = Color.Transparent
         Dim sql As String
         Dim mistring As String = ""
-        sql = " SELECT id, signatura, name, type, phone, address, postalcode, turismemail FROM lodging"
+        sql = " SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity,type FROM lodging"
         Dim commando As New MySqlCommand
         Dim adapter As New MySqlDataAdapter
 
@@ -45,8 +46,24 @@ Public Class Form2
 
         adapter.Fill(das1, "Cliente")
         Me.DataGridView2.DataSource = das1.Tables("Cliente")
+        Me.DataGridView2.Columns(0).HeaderText = "Id"
+        Me.DataGridView2.Columns(0).Width = 50
+        Me.DataGridView2.Columns(1).HeaderText = "Name"
+        Me.DataGridView2.Columns(2).HeaderText = "Signatura"
+        Me.DataGridView2.Columns(3).HeaderText = "Type"
+        Me.DataGridView2.Columns(4).HeaderText = "Phone"
+        Me.DataGridView2.Columns(5).HeaderText = "Address"
+        Me.DataGridView2.Columns(6).HeaderText = "Postalcode"
+        Me.DataGridView2.Columns(7).HeaderText = "Turismemail"
+        Me.DataGridView2.Columns(8).HeaderText = "Capacity"
+        Me.DataGridView2.Columns(8).Width = 50
+        Me.DataGridView2.Columns(9).HeaderText = "Type"
+        Me.DataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.GreenYellow
 
+    End Sub
 
+    Private Sub Form2_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then Application.Exit()
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -112,11 +129,15 @@ Public Class Form2
     End Sub
 
 
-    Public Sub filtrar(nombre As String, categoria As String, capacidad As String, direccion As String)
+    Public Sub filtrar(nombre As String, categoria As String, capacidad As String, direccion As String, tipo As String)
         Conex.Conexion.conectar()
         Dim sql As String
+        If capacidad <> "" Then
+            sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and capacity >= " & capacidad & " and address like '%" & direccion & "%' and type = '" & tipo & "'"
+        Else
+            sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and address like '%" & direccion & "%' and type = '" & tipo & "'"
 
-        sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail FROM lodging where name like '%" & nombre & "%' and category like '%" & categoria & "%' and capacity like '%" & capacidad & "%' and address like '%" & direccion & "%'"
+        End If
         Dim cmd As New MySqlCommand(sql, conexion)
         Dim adapter As New MySqlDataAdapter
         adapter.SelectCommand = cmd
@@ -130,9 +151,12 @@ Public Class Form2
 
 
     End Sub
-
+    
     Private Sub FiltrarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FiltrarToolStripMenuItem.Click
         Filtros.Show()
         Me.Close()
     End Sub
+
+   
+    
 End Class
