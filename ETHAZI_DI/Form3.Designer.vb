@@ -42,14 +42,12 @@ Partial Class Form3
         Me.Text_FUrl = New System.Windows.Forms.TextBox()
         Me.Text_firma = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.Text_Tipo = New System.Windows.Forms.TextBox()
         Me.Text_desc = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.txt_categoria = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Text_Url = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -58,16 +56,19 @@ Partial Class Form3
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Text_marca = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.cp_in = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cmb_municipio = New System.Windows.Forms.ComboBox()
+        Me.cmb_in = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.SuspendLayout
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.SuspendLayout()
         '
         'Text_nombre
         '
-        Me.Text_nombre.Enabled = false
-        Me.Text_nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Text_nombre.Enabled = False
+        Me.Text_nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_nombre.Location = New System.Drawing.Point(163, 100)
         Me.Text_nombre.Name = "Text_nombre"
         Me.Text_nombre.Size = New System.Drawing.Size(586, 24)
@@ -75,8 +76,8 @@ Partial Class Form3
         '
         'Text_tel
         '
-        Me.Text_tel.Enabled = false
-        Me.Text_tel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Text_tel.Enabled = False
+        Me.Text_tel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_tel.Location = New System.Drawing.Point(163, 190)
         Me.Text_tel.Name = "Text_tel"
         Me.Text_tel.Size = New System.Drawing.Size(202, 24)
@@ -84,8 +85,8 @@ Partial Class Form3
         '
         'Text_direccion
         '
-        Me.Text_direccion.Enabled = false
-        Me.Text_direccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Text_direccion.Enabled = False
+        Me.Text_direccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_direccion.Location = New System.Drawing.Point(163, 295)
         Me.Text_direccion.Name = "Text_direccion"
         Me.Text_direccion.Size = New System.Drawing.Size(585, 24)
@@ -93,8 +94,8 @@ Partial Class Form3
         '
         'Text_email
         '
-        Me.Text_email.Enabled = false
-        Me.Text_email.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Text_email.Enabled = False
+        Me.Text_email.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_email.Location = New System.Drawing.Point(163, 230)
         Me.Text_email.Name = "Text_email"
         Me.Text_email.Size = New System.Drawing.Size(586, 24)
@@ -102,8 +103,8 @@ Partial Class Form3
         '
         'Text_web
         '
-        Me.Text_web.Enabled = false
-        Me.Text_web.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Text_web.Enabled = False
+        Me.Text_web.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_web.Location = New System.Drawing.Point(163, 264)
         Me.Text_web.Name = "Text_web"
         Me.Text_web.Size = New System.Drawing.Size(586, 24)
@@ -111,8 +112,8 @@ Partial Class Form3
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(61, 103)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 18)
@@ -121,8 +122,8 @@ Partial Class Form3
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(60, 193)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 18)
@@ -131,8 +132,8 @@ Partial Class Form3
         '
         'Label3
         '
-        Me.Label3.AutoSize = true
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(57, 297)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(66, 18)
@@ -141,8 +142,8 @@ Partial Class Form3
         '
         'Label4
         '
-        Me.Label4.AutoSize = true
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(61, 233)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(49, 18)
@@ -151,8 +152,8 @@ Partial Class Form3
         '
         'Label5
         '
-        Me.Label5.AutoSize = true
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(61, 267)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(43, 18)
@@ -161,8 +162,8 @@ Partial Class Form3
         '
         'Label6
         '
-        Me.Label6.AutoSize = true
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(56, 150)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(69, 18)
@@ -171,9 +172,9 @@ Partial Class Form3
         '
         'Label7
         '
-        Me.Label7.AutoSize = true
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label7.Location = New System.Drawing.Point(53, 344)
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(536, 341)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(94, 18)
         Me.Label7.TabIndex = 16
@@ -181,9 +182,9 @@ Partial Class Form3
         '
         'Label8
         '
-        Me.Label8.AutoSize = true
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label8.Location = New System.Drawing.Point(53, 379)
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(57, 379)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(93, 18)
         Me.Label8.TabIndex = 17
@@ -255,19 +256,10 @@ Partial Class Form3
         Me.Label13.TabIndex = 31
         Me.Label13.Text = "Type:"
         '
-        'Text_Tipo
-        '
-        Me.Text_Tipo.Enabled = False
-        Me.Text_Tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Text_Tipo.Location = New System.Drawing.Point(369, 147)
-        Me.Text_Tipo.Name = "Text_Tipo"
-        Me.Text_Tipo.Size = New System.Drawing.Size(202, 24)
-        Me.Text_Tipo.TabIndex = 32
-        '
         'Text_desc
         '
         Me.Text_desc.Enabled = False
-        Me.Text_desc.Location = New System.Drawing.Point(164, 414)
+        Me.Text_desc.Location = New System.Drawing.Point(164, 403)
         Me.Text_desc.Multiline = True
         Me.Text_desc.Name = "Text_desc"
         Me.Text_desc.Size = New System.Drawing.Size(586, 90)
@@ -277,7 +269,7 @@ Partial Class Form3
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(56, 413)
+        Me.Label16.Location = New System.Drawing.Point(56, 402)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(91, 18)
         Me.Label16.TabIndex = 35
@@ -320,15 +312,6 @@ Partial Class Form3
         Me.Label14.Size = New System.Drawing.Size(88, 36)
         Me.Label14.TabIndex = 40
         Me.Label14.Text = "Municipality " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "code:"
-        '
-        'txt_categoria
-        '
-        Me.txt_categoria.Enabled = False
-        Me.txt_categoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_categoria.Location = New System.Drawing.Point(662, 144)
-        Me.txt_categoria.Name = "txt_categoria"
-        Me.txt_categoria.Size = New System.Drawing.Size(87, 24)
-        Me.txt_categoria.TabIndex = 43
         '
         'Label17
         '
@@ -380,8 +363,8 @@ Partial Class Form3
         '
         'Label15
         '
-        Me.Label15.AutoSize = true
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(437, 190)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(54, 18)
@@ -390,8 +373,8 @@ Partial Class Form3
         '
         'Text_marca
         '
-        Me.Text_marca.Enabled = false
-        Me.Text_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Text_marca.Enabled = False
+        Me.Text_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_marca.Location = New System.Drawing.Point(547, 187)
         Me.Text_marca.Name = "Text_marca"
         Me.Text_marca.Size = New System.Drawing.Size(202, 24)
@@ -404,54 +387,86 @@ Partial Class Form3
         Me.Button2.Size = New System.Drawing.Size(119, 23)
         Me.Button2.TabIndex = 50
         Me.Button2.Text = "Editar"
-        Me.Button2.UseVisualStyleBackColor = true
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'cp_in
         '
-        Me.ComboBox1.Enabled = false
-        Me.ComboBox1.FormattingEnabled = true
-        Me.ComboBox1.Location = New System.Drawing.Point(163, 340)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(106, 21)
-        Me.ComboBox1.TabIndex = 51
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.Enabled = false
-        Me.ComboBox2.FormattingEnabled = true
-        Me.ComboBox2.Location = New System.Drawing.Point(389, 341)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(141, 21)
-        Me.ComboBox2.TabIndex = 52
+        Me.cp_in.Enabled = False
+        Me.cp_in.FormattingEnabled = True
+        Me.cp_in.Location = New System.Drawing.Point(642, 341)
+        Me.cp_in.Name = "cp_in"
+        Me.cp_in.Size = New System.Drawing.Size(106, 21)
+        Me.cp_in.TabIndex = 51
         '
         'Label9
         '
-        Me.Label9.AutoSize = true
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label9.Location = New System.Drawing.Point(546, 347)
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(56, 344)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(75, 18)
         Me.Label9.TabIndex = 53
         Me.Label9.Text = "Municipio:"
         '
-        'ComboBox3
+        'cmb_municipio
         '
-        Me.ComboBox3.FormattingEnabled = true
-        Me.ComboBox3.Location = New System.Drawing.Point(627, 344)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 54
+        Me.cmb_municipio.Enabled = False
+        Me.cmb_municipio.FormattingEnabled = True
+        Me.cmb_municipio.Location = New System.Drawing.Point(163, 341)
+        Me.cmb_municipio.Name = "cmb_municipio"
+        Me.cmb_municipio.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_municipio.TabIndex = 54
+        '
+        'cmb_in
+        '
+        Me.cmb_in.Enabled = False
+        Me.cmb_in.Location = New System.Drawing.Point(391, 341)
+        Me.cmb_in.Name = "cmb_in"
+        Me.cmb_in.Size = New System.Drawing.Size(125, 20)
+        Me.cmb_in.TabIndex = 55
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Enabled = False
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(381, 146)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(165, 21)
+        Me.ComboBox1.TabIndex = 141
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.Enabled = False
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(666, 146)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(84, 21)
+        Me.ComboBox2.TabIndex = 142
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(160, 496)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(598, 13)
+        Me.Label20.TabIndex = 144
+        Me.Label20.Text = "---------------------------------------------------------------------------------" & _
+    "--------------------------------------------------------------------------------" & _
+    "------------------------------------"
         '
         'Form3
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = true
+        Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(876, 662)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmb_in)
+        Me.Controls.Add(Me.cmb_municipio)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.cp_in)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Text_marca)
@@ -459,7 +474,6 @@ Partial Class Form3
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.Text_Url)
         Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.txt_categoria)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label12)
@@ -467,7 +481,6 @@ Partial Class Form3
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Text_desc)
         Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.Text_Tipo)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Text_firma)
         Me.Controls.Add(Me.Text_FUrl)
@@ -516,14 +529,12 @@ End Sub
     Friend WithEvents Text_FUrl As System.Windows.Forms.TextBox
     Friend WithEvents Text_firma As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Text_Tipo As System.Windows.Forms.TextBox
     Friend WithEvents Text_desc As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents txt_categoria As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Text_Url As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
@@ -532,8 +543,11 @@ End Sub
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Text_marca As System.Windows.Forms.TextBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents cp_in As System.Windows.Forms.ComboBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents cmb_municipio As System.Windows.Forms.ComboBox
+    Friend WithEvents cmb_in As System.Windows.Forms.TextBox
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label20 As System.Windows.Forms.Label
 End Class

@@ -189,6 +189,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="New Project.png" />
+    <None Include="Resources\advertencia.png" />
     <Content Include="Resources\ojo-cerrado.png" />
     <None Include="Resources\ojo-cerrado1.png" />
     <None Include="Resources\pupila-del-ojo.png" />

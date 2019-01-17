@@ -29,8 +29,6 @@ Public Class Form2
         Catch ex As MySqlException
 
         End Try
-        Label1.Parent = PictureBox1
-        Label1.BackColor = Color.Transparent
         Dim sql As String
         Dim mistring As String = ""
         sql = " SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity,type FROM lodging"
@@ -67,7 +65,7 @@ Public Class Form2
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        
+        form_center(Me)
         mostrarTabla()
 
 
@@ -132,12 +130,43 @@ Public Class Form2
     Public Sub filtrar(nombre As String, categoria As String, capacidad As String, direccion As String, tipo As String)
         Conex.Conexion.conectar()
         Dim sql As String
-        If capacidad <> "" Then
-            sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and capacity >= " & capacidad & " and address like '%" & direccion & "%' and type = '" & tipo & "'"
+        sql = "select municipalitycode from lodging where municipalitycode = (Select distinct municipalityCode from postalCode where municipality = '" & direccion & "')"
+        Dim codigoMunicipal As Integer
+        Dim cmd2 As New MySqlCommand(sql, conexion)
+        Dim dr As MySqlDataReader
+        dr = cmd2.ExecuteReader
+        While dr.Read
+            codigoMunicipal = dr.Item(0)
+        End While
+        dr.Close()
+
+        If tipo <> "" Then
+            If capacidad <> "" Then
+                If direccion <> "" Then
+                    sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and capacity >= " & capacidad & " and municipalityCode = " & codigoMunicipal & " and type = '" & tipo & "'"
+                Else
+                    sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and capacity >= " & capacidad & " and type = '" & tipo & "'"
+                End If
+            ElseIf direccion <> "" Then
+                sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and municipalityCode = " & codigoMunicipal & " and type = '" & tipo & "'"
+            Else
+                sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and type = '" & tipo & "'"
+            End If
+        ElseIf capacidad <> "" Then
+            If direccion <> "" Then
+                sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and capacity >= " & capacidad & " and municipalityCode = " & codigoMunicipal & ""
+            Else
+                sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and capacity >= " & capacidad & ""
+            End If
+        ElseIf direccion <> "" Then
+            
+            sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and municipalityCode = " & codigoMunicipal & ""
+            MsgBox("Estoy aqui")
         Else
-            sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and address like '%" & direccion & "%' and type = '" & tipo & "'"
+            sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%'"
 
         End If
+
         Dim cmd As New MySqlCommand(sql, conexion)
         Dim adapter As New MySqlDataAdapter
         adapter.SelectCommand = cmd
@@ -157,6 +186,27 @@ Public Class Form2
         Me.Close()
     End Sub
 
-   
+    Public Sub form_center(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
+
+        Dim x As Integer
+        Dim y As Integer
+        Dim r As Rectangle
+
+        If Not parent Is Nothing Then
+            r = parent.ClientRectangle
+            x = r.Width - frm.Width + parent.Left
+            y = r.Height - frm.Height + parent.Top
+        Else
+            r = Screen.PrimaryScreen.WorkingArea
+            x = r.Width - frm.Width
+            y = r.Height - frm.Height
+        End If
+
+        x = CInt(x / 2)
+        y = CInt(y / 2)
+
+        frm.StartPosition = FormStartPosition.Manual
+        frm.Location = New Point(x, y)
+    End Sub
     
 End Class

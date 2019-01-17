@@ -22,7 +22,6 @@ Partial Class Form2
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.HolaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -36,18 +35,6 @@ Partial Class Form2
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Black
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(35, 27)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(188, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Gestión de Usuarios"
         '
         'DataGridView2
         '
@@ -74,42 +61,42 @@ Partial Class Form2
         '
         Me.HolaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QueTalToolStripMenuItem, Me.VerDetalleToolStripMenuItem, Me.FiltrarToolStripMenuItem, Me.BorrarToolStripMenuItem})
         Me.HolaToolStripMenuItem.Name = "HolaToolStripMenuItem"
-        Me.HolaToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
-        Me.HolaToolStripMenuItem.Text = "Opciones"
+        Me.HolaToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.HolaToolStripMenuItem.Text = "Settings"
         '
         'QueTalToolStripMenuItem
         '
         Me.QueTalToolStripMenuItem.Name = "QueTalToolStripMenuItem"
         Me.QueTalToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
-        Me.QueTalToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
-        Me.QueTalToolStripMenuItem.Text = "&Insertar"
+        Me.QueTalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.QueTalToolStripMenuItem.Text = "&Insert"
         '
         'VerDetalleToolStripMenuItem
         '
         Me.VerDetalleToolStripMenuItem.Name = "VerDetalleToolStripMenuItem"
         Me.VerDetalleToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.VerDetalleToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
-        Me.VerDetalleToolStripMenuItem.Text = "&Ver detalle"
+        Me.VerDetalleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.VerDetalleToolStripMenuItem.Text = "&Details"
         '
         'FiltrarToolStripMenuItem
         '
         Me.FiltrarToolStripMenuItem.Name = "FiltrarToolStripMenuItem"
         Me.FiltrarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FiltrarToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
-        Me.FiltrarToolStripMenuItem.Text = "&Filtrar"
+        Me.FiltrarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FiltrarToolStripMenuItem.Text = "&Filters"
         '
         'BorrarToolStripMenuItem
         '
         Me.BorrarToolStripMenuItem.Name = "BorrarToolStripMenuItem"
         Me.BorrarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
-        Me.BorrarToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
-        Me.BorrarToolStripMenuItem.Text = "&Eliminar"
+        Me.BorrarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BorrarToolStripMenuItem.Text = "&Delete"
         '
         'CerrarSesionToolStripMenuItem
         '
         Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
-        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
-        Me.CerrarSesionToolStripMenuItem.Text = "Cerrar Sesion"
+        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.CerrarSesionToolStripMenuItem.Text = "Log Out"
         '
         'PictureBox1
         '
@@ -127,7 +114,6 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1163, 553)
         Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -143,7 +129,6 @@ Partial Class Form2
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents HolaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

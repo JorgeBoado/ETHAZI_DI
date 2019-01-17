@@ -40,9 +40,9 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(57, 54)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.Size = New System.Drawing.Size(29, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Usuario"
+        Me.Label1.Text = "User"
         '
         'TextBox1
         '
@@ -56,9 +56,9 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(57, 93)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 13)
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Contraseña"
+        Me.Label2.Text = "Password"
         '
         'TextBox2
         '
@@ -73,7 +73,7 @@ Partial Class Form1
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Acceder"
+        Me.Button1.Text = "Log In"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Label3
@@ -113,7 +113,7 @@ Partial Class Form1
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 8
-        Me.Button2.Text = "Salir"
+        Me.Button2.Text = "Exit"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Form1

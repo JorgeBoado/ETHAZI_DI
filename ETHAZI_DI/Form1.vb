@@ -46,7 +46,7 @@ Public Class Form1
             Me.TextBox1.Focus()
             Me.Hide()
         Else
-            Me.Label3.Text = "Usuario y/o contraseña incorrectos"
+            Me.Label3.Text = "Incorrect user or password"
             Me.TextBox1.Text = ""
         End If
         Label3.Visible = True
@@ -58,6 +58,7 @@ Public Class Form1
     End Sub
     
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        form_center(Me)
         Me.TextBox2.PasswordChar = "*"
 
         Try
@@ -132,4 +133,27 @@ Public Class Form1
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Application.Exit()
     End Sub
+    Public Sub form_center(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
+
+        Dim x As Integer
+        Dim y As Integer
+        Dim r As Rectangle
+
+        If Not parent Is Nothing Then
+            r = parent.ClientRectangle
+            x = r.Width - frm.Width + parent.Left
+            y = r.Height - frm.Height + parent.Top
+        Else
+            r = Screen.PrimaryScreen.WorkingArea
+            x = r.Width - frm.Width
+            y = r.Height - frm.Height
+        End If
+
+        x = CInt(x / 2)
+        y = CInt(y / 2)
+
+        frm.StartPosition = FormStartPosition.Manual
+        frm.Location = New Point(x, y)
+    End Sub
+
 End Class
