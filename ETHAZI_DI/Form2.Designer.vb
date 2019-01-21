@@ -22,18 +22,23 @@ Partial Class Form2
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.HolaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QueTalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerDetalleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FiltrarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MapaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView2
@@ -53,13 +58,13 @@ Partial Class Form2
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HolaToolStripMenuItem, Me.CerrarSesionToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1163, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1173, 24)
         Me.MenuStrip1.TabIndex = 4
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'HolaToolStripMenuItem
         '
-        Me.HolaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QueTalToolStripMenuItem, Me.VerDetalleToolStripMenuItem, Me.FiltrarToolStripMenuItem, Me.BorrarToolStripMenuItem})
+        Me.HolaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QueTalToolStripMenuItem, Me.VerDetalleToolStripMenuItem, Me.FiltrarToolStripMenuItem, Me.MapaToolStripMenuItem, Me.BorrarToolStripMenuItem})
         Me.HolaToolStripMenuItem.Name = "HolaToolStripMenuItem"
         Me.HolaToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.HolaToolStripMenuItem.Text = "Settings"
@@ -68,28 +73,35 @@ Partial Class Form2
         '
         Me.QueTalToolStripMenuItem.Name = "QueTalToolStripMenuItem"
         Me.QueTalToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
-        Me.QueTalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.QueTalToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.QueTalToolStripMenuItem.Text = "&Insert"
         '
         'VerDetalleToolStripMenuItem
         '
         Me.VerDetalleToolStripMenuItem.Name = "VerDetalleToolStripMenuItem"
         Me.VerDetalleToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.VerDetalleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.VerDetalleToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.VerDetalleToolStripMenuItem.Text = "&Details"
         '
         'FiltrarToolStripMenuItem
         '
         Me.FiltrarToolStripMenuItem.Name = "FiltrarToolStripMenuItem"
         Me.FiltrarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FiltrarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FiltrarToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.FiltrarToolStripMenuItem.Text = "&Filters"
+        '
+        'MapaToolStripMenuItem
+        '
+        Me.MapaToolStripMenuItem.Name = "MapaToolStripMenuItem"
+        Me.MapaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
+        Me.MapaToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.MapaToolStripMenuItem.Text = "Mapa"
         '
         'BorrarToolStripMenuItem
         '
         Me.BorrarToolStripMenuItem.Name = "BorrarToolStripMenuItem"
         Me.BorrarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
-        Me.BorrarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BorrarToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.BorrarToolStripMenuItem.Text = "&Delete"
         '
         'CerrarSesionToolStripMenuItem
@@ -108,23 +120,33 @@ Partial Class Form2
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
         '
+        'VisualStyler1
+        '
+        Me.VisualStyler1.HostForm = Me
+        Me.VisualStyler1.License = CType(resources.GetObject("VisualStyler1.License"), SkinSoft.VisualStyler.Licensing.VisualStylerLicense)
+        Me.VisualStyler1.LoadVisualStyle(Nothing, "Office2007 (Black).vssf")
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1163, 553)
+        Me.ClientSize = New System.Drawing.Size(1173, 560)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(1179, 592)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(1179, 592)
         Me.Name = "Form2"
-        Me.Text = "Form2"
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -138,4 +160,6 @@ Partial Class Form2
     Friend WithEvents CerrarSesionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VerDetalleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FiltrarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
+    Friend WithEvents MapaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -36,20 +36,21 @@ Public Class Form1
             End If
         Next
         If nombrecorrecto And passcorrecta Then
-
+            Me.Hide()
+            FormCarga.Show()
             Form2.Show()
             Form2.Hide()
-            FormCarga.Show()
             TextBox1.Text = ""
             TextBox2.Text = ""
             Me.Label3.Text = ""
             Me.TextBox1.Focus()
-            Me.Hide()
+
         Else
             Me.Label3.Text = "Incorrect user or password"
-            Me.TextBox1.Text = ""
+            Me.TextBox2.Text = ""
         End If
         Label3.Visible = True
+
     End Sub
     Friend conexion As MySqlConnection
     Dim das1 As New DataSet
@@ -103,6 +104,7 @@ Public Class Form1
             usuarios.Add(linea)
             passwords.Add(pass)
         End While
+        
     End Sub
 
     Function encriptar(pass As String) As String
@@ -156,4 +158,6 @@ Public Class Form1
         frm.Location = New Point(x, y)
     End Sub
 
+    
+    
 End Class

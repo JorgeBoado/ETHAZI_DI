@@ -23,9 +23,7 @@ Public Class Filtros
        
     End Sub
 
-    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
-      
-    End Sub
+   
 
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs)
 
@@ -57,7 +55,7 @@ Public Class Filtros
         End While
         dr.Close()
 
-        sql = "Select distinct municipality from postalCode"
+        sql = "Select distinct municipality from postalCode order by municipality asc"
         cmd.Connection = Conexion.conection
         cmd.CommandText = sql
 
@@ -74,6 +72,9 @@ Public Class Filtros
         While dr.Read
             ComboBox3.Items.Add(dr.Item(0))
         End While
+        Me.ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
+        Me.ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
+        Me.ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
 
         Conexion.desconectar()
     End Sub
@@ -99,4 +100,40 @@ Public Class Filtros
         frm.StartPosition = FormStartPosition.Manual
         frm.Location = New Point(x, y)
     End Sub
+
+    Private Sub ComboBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ComboBox1.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub ComboBox2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ComboBox2.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub ComboBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ComboBox3.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub TextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox3.KeyPress
+        If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
+            e.Handled = True
+            MsgBox("Este campo es solo numerico")
+        Else
+            e.Handled = False
+        End If
+
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        Me.ComboBox3.SelectedIndex = -1
+    End Sub
+
+    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
+        Me.ComboBox2.SelectedIndex = -1
+    End Sub
+
+    Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
+        Me.ComboBox1.SelectedIndex = -1
+    End Sub
+
+  
 End Class

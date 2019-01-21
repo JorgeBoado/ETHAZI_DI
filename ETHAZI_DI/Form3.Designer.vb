@@ -22,6 +22,8 @@ Partial Class Form3
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form3))
         Me.Text_nombre = New System.Windows.Forms.TextBox()
         Me.Text_tel = New System.Windows.Forms.TextBox()
         Me.Text_direccion = New System.Windows.Forms.TextBox()
@@ -63,6 +65,8 @@ Partial Class Form3
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label20 = New System.Windows.Forms.Label()
+        Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Text_nombre
@@ -454,6 +458,12 @@ Partial Class Form3
     "--------------------------------------------------------------------------------" & _
     "------------------------------------"
         '
+        'VisualStyler1
+        '
+        Me.VisualStyler1.HostForm = Me
+        Me.VisualStyler1.License = CType(resources.GetObject("VisualStyler1.License"), SkinSoft.VisualStyler.Licensing.VisualStylerLicense)
+        Me.VisualStyler1.LoadVisualStyle(Nothing, "Office2007 (Black).vssf")
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -501,11 +511,16 @@ Partial Class Form3
         Me.Controls.Add(Me.Text_direccion)
         Me.Controls.Add(Me.Text_tel)
         Me.Controls.Add(Me.Text_nombre)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.KeyPreview = true
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(892, 701)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(892, 701)
         Me.Name = "Form3"
         Me.Text = " "
-        Me.ResumeLayout(false)
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
         Me.PerformLayout
 
 End Sub
@@ -550,4 +565,5 @@ End Sub
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
 End Class

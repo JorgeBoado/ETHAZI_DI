@@ -10,6 +10,7 @@ Public Class Form2
 
 
     Friend conexion As MySqlConnection
+    Dim hexColor As Color
     Dim das1 As New DataSet
 
     Private Sub mostrarTabla()
@@ -43,6 +44,7 @@ Public Class Form2
         das1.Clear()
 
         adapter.Fill(das1, "Cliente")
+
         Me.DataGridView2.DataSource = das1.Tables("Cliente")
         Me.DataGridView2.Columns(0).HeaderText = "Id"
         Me.DataGridView2.Columns(0).Width = 50
@@ -56,7 +58,8 @@ Public Class Form2
         Me.DataGridView2.Columns(8).HeaderText = "Capacity"
         Me.DataGridView2.Columns(8).Width = 50
         Me.DataGridView2.Columns(9).HeaderText = "Type"
-        Me.DataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.GreenYellow
+        Me.DataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.Gold
+        Me.DataGridView2.RowsDefaultCellStyle.Font = New Font("Arial", 8, FontStyle.Bold)
 
     End Sub
 
@@ -68,6 +71,9 @@ Public Class Form2
         form_center(Me)
         mostrarTabla()
 
+        hexColor = ColorTranslator.FromHtml("#ffd11a")
+
+
 
     End Sub
 
@@ -77,7 +83,7 @@ Public Class Form2
         Me.Hide()
     End Sub
 
-   
+
     Private Sub CerrarSesionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesionToolStripMenuItem.Click
         Me.Close()
         Conex.Conexion.desconectar()
@@ -159,7 +165,7 @@ Public Class Form2
                 sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and capacity >= " & capacidad & ""
             End If
         ElseIf direccion <> "" Then
-            
+
             sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and municipalityCode = " & codigoMunicipal & ""
             MsgBox("Estoy aqui")
         Else
@@ -180,7 +186,7 @@ Public Class Form2
 
 
     End Sub
-    
+
     Private Sub FiltrarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FiltrarToolStripMenuItem.Click
         Filtros.Show()
         Me.Close()
@@ -208,5 +214,13 @@ Public Class Form2
         frm.StartPosition = FormStartPosition.Manual
         frm.Location = New Point(x, y)
     End Sub
-    
+
+    Private Sub MapaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MapaToolStripMenuItem.Click
+        Me.Close()
+        Mapa.Show()
+    End Sub
+
+    Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
+
+    End Sub
 End Class

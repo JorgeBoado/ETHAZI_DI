@@ -22,6 +22,8 @@ Partial Class Insertar
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Insertar))
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cmb_municipio = New System.Windows.Forms.ComboBox()
@@ -73,6 +75,7 @@ Partial Class Insertar
         Me.Splitter1 = New System.Windows.Forms.Splitter()
         Me.AmigosDataSet1 = New ETHAZI_DI.AmigosDataSet()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
         CType(Me.picSign, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picName, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picType, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,6 +87,7 @@ Partial Class Insertar
         CType(Me.picPhy, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picZip, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AmigosDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button2
@@ -91,7 +95,7 @@ Partial Class Insertar
         Me.Button2.Location = New System.Drawing.Point(769, 567)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(119, 23)
-        Me.Button2.TabIndex = 90
+        Me.Button2.TabIndex = 19
         Me.Button2.Text = "Insertar"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -100,7 +104,7 @@ Partial Class Insertar
         Me.Button1.Location = New System.Drawing.Point(423, 567)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(131, 23)
-        Me.Button1.TabIndex = 77
+        Me.Button1.TabIndex = 18
         Me.Button1.Text = "Volver a la vista global"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -110,7 +114,7 @@ Partial Class Insertar
         Me.cmb_municipio.Location = New System.Drawing.Point(268, 302)
         Me.cmb_municipio.Name = "cmb_municipio"
         Me.cmb_municipio.Size = New System.Drawing.Size(109, 21)
-        Me.cmb_municipio.TabIndex = 128
+        Me.cmb_municipio.TabIndex = 10
         '
         'Label9
         '
@@ -128,7 +132,7 @@ Partial Class Insertar
         Me.cp_in.Location = New System.Drawing.Point(749, 304)
         Me.cp_in.Name = "cp_in"
         Me.cp_in.Size = New System.Drawing.Size(106, 21)
-        Me.cp_in.TabIndex = 125
+        Me.cp_in.TabIndex = 12
         '
         'Label15
         '
@@ -146,7 +150,7 @@ Partial Class Insertar
         Me.Text_marca.Location = New System.Drawing.Point(652, 150)
         Me.Text_marca.Name = "Text_marca"
         Me.Text_marca.Size = New System.Drawing.Size(202, 24)
-        Me.Text_marca.TabIndex = 123
+        Me.Text_marca.TabIndex = 6
         '
         'Text_zipfile
         '
@@ -154,7 +158,7 @@ Partial Class Insertar
         Me.Text_zipfile.Location = New System.Drawing.Point(269, 533)
         Me.Text_zipfile.Name = "Text_zipfile"
         Me.Text_zipfile.Size = New System.Drawing.Size(586, 24)
-        Me.Text_zipfile.TabIndex = 122
+        Me.Text_zipfile.TabIndex = 17
         '
         'Label19
         '
@@ -172,7 +176,7 @@ Partial Class Insertar
         Me.Text_Url.Location = New System.Drawing.Point(269, 503)
         Me.Text_Url.Name = "Text_Url"
         Me.Text_Url.Size = New System.Drawing.Size(586, 24)
-        Me.Text_Url.TabIndex = 120
+        Me.Text_Url.TabIndex = 16
         '
         'Label18
         '
@@ -210,7 +214,7 @@ Partial Class Insertar
         Me.Text_desc.Multiline = True
         Me.Text_desc.Name = "Text_desc"
         Me.Text_desc.Size = New System.Drawing.Size(586, 90)
-        Me.Text_desc.TabIndex = 113
+        Me.Text_desc.TabIndex = 14
         '
         'Label16
         '
@@ -238,7 +242,7 @@ Partial Class Insertar
         Me.Text_firma.Location = New System.Drawing.Point(268, 12)
         Me.Text_firma.Name = "Text_firma"
         Me.Text_firma.Size = New System.Drawing.Size(281, 24)
-        Me.Text_firma.TabIndex = 109
+        Me.Text_firma.TabIndex = 0
         '
         'Text_FUrl
         '
@@ -246,7 +250,7 @@ Partial Class Insertar
         Me.Text_FUrl.Location = New System.Drawing.Point(269, 473)
         Me.Text_FUrl.Name = "Text_FUrl"
         Me.Text_FUrl.Size = New System.Drawing.Size(586, 24)
-        Me.Text_FUrl.TabIndex = 108
+        Me.Text_FUrl.TabIndex = 15
         '
         'Text_coord
         '
@@ -254,7 +258,7 @@ Partial Class Insertar
         Me.Text_coord.Location = New System.Drawing.Point(269, 336)
         Me.Text_coord.Name = "Text_coord"
         Me.Text_coord.Size = New System.Drawing.Size(584, 24)
-        Me.Text_coord.TabIndex = 107
+        Me.Text_coord.TabIndex = 13
         '
         'Text_capacity
         '
@@ -262,7 +266,7 @@ Partial Class Insertar
         Me.Text_capacity.Location = New System.Drawing.Point(268, 107)
         Me.Text_capacity.Name = "Text_capacity"
         Me.Text_capacity.Size = New System.Drawing.Size(136, 24)
-        Me.Text_capacity.TabIndex = 106
+        Me.Text_capacity.TabIndex = 2
         '
         'Label11
         '
@@ -370,7 +374,7 @@ Partial Class Insertar
         Me.Text_web.Location = New System.Drawing.Point(268, 227)
         Me.Text_web.Name = "Text_web"
         Me.Text_web.Size = New System.Drawing.Size(586, 24)
-        Me.Text_web.TabIndex = 95
+        Me.Text_web.TabIndex = 8
         '
         'Text_email
         '
@@ -378,7 +382,7 @@ Partial Class Insertar
         Me.Text_email.Location = New System.Drawing.Point(268, 193)
         Me.Text_email.Name = "Text_email"
         Me.Text_email.Size = New System.Drawing.Size(586, 24)
-        Me.Text_email.TabIndex = 94
+        Me.Text_email.TabIndex = 7
         '
         'Text_direccion
         '
@@ -386,7 +390,7 @@ Partial Class Insertar
         Me.Text_direccion.Location = New System.Drawing.Point(268, 258)
         Me.Text_direccion.Name = "Text_direccion"
         Me.Text_direccion.Size = New System.Drawing.Size(585, 24)
-        Me.Text_direccion.TabIndex = 93
+        Me.Text_direccion.TabIndex = 9
         '
         'Text_tel
         '
@@ -394,7 +398,7 @@ Partial Class Insertar
         Me.Text_tel.Location = New System.Drawing.Point(268, 153)
         Me.Text_tel.Name = "Text_tel"
         Me.Text_tel.Size = New System.Drawing.Size(202, 24)
-        Me.Text_tel.TabIndex = 92
+        Me.Text_tel.TabIndex = 5
         '
         'Text_nombre
         '
@@ -402,7 +406,7 @@ Partial Class Insertar
         Me.Text_nombre.Location = New System.Drawing.Point(268, 63)
         Me.Text_nombre.Name = "Text_nombre"
         Me.Text_nombre.Size = New System.Drawing.Size(586, 24)
-        Me.Text_nombre.TabIndex = 91
+        Me.Text_nombre.TabIndex = 1
         '
         'picSign
         '
@@ -516,10 +520,11 @@ Partial Class Insertar
         '
         'cmb_in
         '
+        Me.cmb_in.Enabled = False
         Me.cmb_in.Location = New System.Drawing.Point(515, 302)
         Me.cmb_in.Name = "cmb_in"
         Me.cmb_in.Size = New System.Drawing.Size(81, 20)
-        Me.cmb_in.TabIndex = 139
+        Me.cmb_in.TabIndex = 11
         '
         'ComboBox1
         '
@@ -527,7 +532,7 @@ Partial Class Insertar
         Me.ComboBox1.Location = New System.Drawing.Point(465, 112)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(165, 21)
-        Me.ComboBox1.TabIndex = 140
+        Me.ComboBox1.TabIndex = 3
         '
         'ComboBox2
         '
@@ -535,13 +540,13 @@ Partial Class Insertar
         Me.ComboBox2.Location = New System.Drawing.Point(769, 109)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(84, 21)
-        Me.ComboBox2.TabIndex = 141
+        Me.ComboBox2.TabIndex = 4
         '
         'Splitter1
         '
         Me.Splitter1.Location = New System.Drawing.Point(0, 0)
         Me.Splitter1.Name = "Splitter1"
-        Me.Splitter1.Size = New System.Drawing.Size(3, 610)
+        Me.Splitter1.Size = New System.Drawing.Size(3, 617)
         Me.Splitter1.TabIndex = 142
         Me.Splitter1.TabStop = False
         '
@@ -561,11 +566,18 @@ Partial Class Insertar
     "--------------------------------------------------------------------------------" & _
     "------------------------------------"
         '
+        'VisualStyler1
+        '
+        Me.VisualStyler1.HostForm = Me
+        Me.VisualStyler1.License = CType(resources.GetObject("VisualStyler1.License"), SkinSoft.VisualStyler.Licensing.VisualStylerLicense)
+        Me.VisualStyler1.LoadVisualStyle(Nothing, "Office2007 (Black).vssf")
+        '
         'Insertar
         '
+        Me.AcceptButton = Me.Button2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1027, 610)
+        Me.ClientSize = New System.Drawing.Size(1037, 617)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Splitter1)
         Me.Controls.Add(Me.ComboBox2)
@@ -616,10 +628,13 @@ Partial Class Insertar
         Me.Controls.Add(Me.Text_nombre)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(1043, 649)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(1043, 649)
         Me.Name = "Insertar"
-        Me.Text = "Insertar"
         CType(Me.picSign, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picName, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picType, System.ComponentModel.ISupportInitialize).EndInit()
@@ -631,6 +646,7 @@ Partial Class Insertar
         CType(Me.picPhy, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picZip, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AmigosDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -686,4 +702,5 @@ End Sub
     Friend WithEvents Splitter1 As System.Windows.Forms.Splitter
     Friend WithEvents AmigosDataSet1 As ETHAZI_DI.AmigosDataSet
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
 End Class
