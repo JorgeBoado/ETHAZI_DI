@@ -4,6 +4,7 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer.Enabled = True
         form_center(Me)
+
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
@@ -41,5 +42,4 @@
         frm.Location = New Point(x, y)
     End Sub
 
-   
 End Class

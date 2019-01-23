@@ -29,7 +29,7 @@ Public Class Insertar
         Conexion.conectar()
         Try
 
-            Dim sql As String = "SELECT DISTINCT municipalitycode FROM postalCode WHERE municipality = '" & municipality & "'"
+            Dim sql As String = "SELECT DISTINCT municipalitycode FROM postalCode WHERE municipality = '" & municipality & "' order by municipality asc"
             Dim cmd As New MySqlCommand(sql, Conexion.conection)
             Dim dr As MySqlDataReader
 
@@ -156,11 +156,13 @@ Public Class Insertar
 
 
                 cmd.ExecuteNonQuery()
+                MsgBox("Registro insertado")
+                limpiarCampos()
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
         Else
-            MsgBox(firmaErr)
+
             If zipErr Then
                 picZip.Visible = True
             Else
@@ -213,6 +215,11 @@ Public Class Insertar
     End Sub
 
     Private Sub Insertar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
+        Me.cmb_municipio.DropDownStyle = ComboBoxStyle.DropDownList
+        Me.ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
+        Me.cp_in.DropDownStyle = ComboBoxStyle.DropDownList
+        
         form_center(Me)
         Conexion.conectar()
         fillMunicipality()
@@ -262,15 +269,15 @@ Public Class Insertar
             Me.Close()
     End Sub
 
-    Private Sub Text_tel_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
+ 
 
     Private Sub cmb_municipio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_municipio.SelectedIndexChanged
+        'Para que el codigo de municipio se rellene en funcion del municipio hago esto
         fillCM(Me.cmb_municipio.SelectedItem)
     End Sub
 
     Private Sub fillType()
+        'Aqui relleno el combobox de tipos
         Conexion.conectar()
         Dim sql As String
         sql = "select distinct type from lodging"
@@ -285,6 +292,7 @@ Public Class Insertar
     End Sub
 
     Private Sub fillCategory()
+        'Aqui relleno el combobox de las categorias
         Conexion.conectar()
         Dim sql As String
         sql = "select distinct category from lodging"
@@ -299,7 +307,7 @@ Public Class Insertar
     End Sub
 
     Public Sub form_center(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
-
+        'Esta funcion es para que el formulario aparezca en el centro de la pantalla
         Dim x As Integer
         Dim y As Integer
         Dim r As Rectangle
@@ -319,5 +327,36 @@ Public Class Insertar
 
         frm.StartPosition = FormStartPosition.Manual
         frm.Location = New Point(x, y)
+    End Sub
+
+    Private Sub limpiarCampos()
+        Me.Text_capacity.Text = ""
+        Me.Text_coord.Text = ""
+        Me.Text_desc.Text = ""
+        Me.Text_direccion.Text = ""
+        Me.Text_email.Text = ""
+        Me.Text_firma.Text = ""
+        Me.Text_FUrl.Text = ""
+        Me.Text_marca.Text = ""
+        Me.Text_nombre.Text = ""
+        Me.Text_tel.Text = ""
+        Me.Text_Url.Text = ""
+        Me.Text_web.Text = ""
+        Me.Text_zipfile.Text = ""
+        Me.cmb_in.Text = ""
+        Me.cmb_municipio.Text = ""
+        Me.ComboBox1.Text = ""
+        Me.cp_in.Text = ""
+        Me.ComboBox2.Text = ""
+    End Sub
+
+   
+    Private Sub Text_capacity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_capacity.KeyPress
+        If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
+            e.Handled = True
+            MsgBox("Este campo es solo numerico")
+        Else
+            e.Handled = False
+        End If
     End Sub
 End Class

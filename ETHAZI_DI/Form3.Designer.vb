@@ -22,6 +22,8 @@ Partial Class Form3
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form3))
         Me.Text_nombre = New System.Windows.Forms.TextBox()
         Me.Text_tel = New System.Windows.Forms.TextBox()
         Me.Text_direccion = New System.Windows.Forms.TextBox()
@@ -63,6 +65,9 @@ Partial Class Form3
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label20 = New System.Windows.Forms.Label()
+        Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
+        Me.Button3 = New System.Windows.Forms.Button()
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Text_nombre
@@ -225,7 +230,7 @@ Partial Class Form3
         Me.Text_coord.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_coord.Location = New System.Drawing.Point(164, 373)
         Me.Text_coord.Name = "Text_coord"
-        Me.Text_coord.Size = New System.Drawing.Size(584, 24)
+        Me.Text_coord.Size = New System.Drawing.Size(405, 24)
         Me.Text_coord.TabIndex = 24
         '
         'Text_FUrl
@@ -454,12 +459,28 @@ Partial Class Form3
     "--------------------------------------------------------------------------------" & _
     "------------------------------------"
         '
+        'VisualStyler1
+        '
+        Me.VisualStyler1.HostForm = Me
+        Me.VisualStyler1.License = CType(resources.GetObject("VisualStyler1.License"), SkinSoft.VisualStyler.Licensing.VisualStylerLicense)
+        Me.VisualStyler1.LoadVisualStyle(Nothing, "Office2007 (Black).vssf")
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(587, 373)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(162, 23)
+        Me.Button3.TabIndex = 145
+        Me.Button3.Text = "Ver en mapa"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(876, 662)
+        Me.ClientSize = New System.Drawing.Size(886, 669)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.ComboBox1)
@@ -501,11 +522,16 @@ Partial Class Form3
         Me.Controls.Add(Me.Text_direccion)
         Me.Controls.Add(Me.Text_tel)
         Me.Controls.Add(Me.Text_nombre)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.KeyPreview = true
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(892, 701)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(892, 701)
         Me.Name = "Form3"
         Me.Text = " "
-        Me.ResumeLayout(false)
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
         Me.PerformLayout
 
 End Sub
@@ -550,4 +576,6 @@ End Sub
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 End Class

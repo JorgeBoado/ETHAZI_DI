@@ -22,6 +22,8 @@ Partial Class Filtros
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Filtros))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -31,12 +33,20 @@ Partial Class Filtros
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -65,7 +75,7 @@ Partial Class Filtros
         Me.Button2.Location = New System.Drawing.Point(397, 437)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(175, 42)
-        Me.Button2.TabIndex = 5
+        Me.Button2.TabIndex = 7
         Me.Button2.Text = "Finalizar"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -85,7 +95,7 @@ Partial Class Filtros
         Me.TextBox1.Location = New System.Drawing.Point(233, 135)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(212, 29)
-        Me.TextBox1.TabIndex = 19
+        Me.TextBox1.TabIndex = 0
         '
         'TextBox3
         '
@@ -93,7 +103,7 @@ Partial Class Filtros
         Me.TextBox3.Location = New System.Drawing.Point(233, 247)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(212, 29)
-        Me.TextBox3.TabIndex = 21
+        Me.TextBox3.TabIndex = 3
         '
         'Label2
         '
@@ -101,9 +111,9 @@ Partial Class Filtros
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(238, 37)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(88, 24)
+        Me.Label2.Size = New System.Drawing.Size(86, 24)
         Me.Label2.TabIndex = 23
-        Me.Label2.Text = "FILTROS"
+        Me.Label2.Text = "FILTERS"
         '
         'Button1
         '
@@ -111,7 +121,7 @@ Partial Class Filtros
         Me.Button1.Location = New System.Drawing.Point(12, 437)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(175, 42)
-        Me.Button1.TabIndex = 25
+        Me.Button1.TabIndex = 6
         Me.Button1.Text = "Atras"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -124,16 +134,6 @@ Partial Class Filtros
         Me.Label10.Size = New System.Drawing.Size(85, 24)
         Me.Label10.TabIndex = 17
         Me.Label10.Text = "Category"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ETHAZI_DI.My.Resources.Resources.New_Project
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 1)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 24
-        Me.PictureBox1.TabStop = False
         '
         'Label4
         '
@@ -151,7 +151,7 @@ Partial Class Filtros
         Me.ComboBox1.Location = New System.Drawing.Point(233, 358)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(212, 21)
-        Me.ComboBox1.TabIndex = 27
+        Me.ComboBox1.TabIndex = 5
         '
         'ComboBox2
         '
@@ -159,7 +159,7 @@ Partial Class Filtros
         Me.ComboBox2.Location = New System.Drawing.Point(233, 309)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(212, 21)
-        Me.ComboBox2.TabIndex = 28
+        Me.ComboBox2.TabIndex = 4
         '
         'ComboBox3
         '
@@ -167,13 +167,62 @@ Partial Class Filtros
         Me.ComboBox3.Location = New System.Drawing.Point(233, 193)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(212, 21)
-        Me.ComboBox3.TabIndex = 29
+        Me.ComboBox3.TabIndex = 2
+        '
+        'VisualStyler1
+        '
+        Me.VisualStyler1.HostForm = Me
+        Me.VisualStyler1.License = CType(resources.GetObject("VisualStyler1.License"), SkinSoft.VisualStyler.Licensing.VisualStylerLicense)
+        Me.VisualStyler1.LoadVisualStyle(Nothing, "Office2007 (Black).vssf")
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.ETHAZI_DI.My.Resources.Resources.Button_12_512
+        Me.PictureBox2.Location = New System.Drawing.Point(451, 193)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(21, 21)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 30
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ETHAZI_DI.My.Resources.Resources.New_Project
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 24
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.ETHAZI_DI.My.Resources.Resources.Button_12_512
+        Me.PictureBox3.Location = New System.Drawing.Point(451, 309)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(21, 21)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 31
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.ETHAZI_DI.My.Resources.Resources.Button_12_512
+        Me.PictureBox4.Location = New System.Drawing.Point(451, 356)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(21, 21)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 32
+        Me.PictureBox4.TabStop = False
         '
         'Filtros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(584, 491)
+        Me.ClientSize = New System.Drawing.Size(594, 498)
+        Me.Controls.Add(Me.PictureBox4)
+        Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.ComboBox1)
@@ -188,10 +237,18 @@ Partial Class Filtros
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(600, 530)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(600, 530)
         Me.Name = "Filtros"
-        Me.Text = "Insertar"
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -210,4 +267,8 @@ Partial Class Filtros
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
 End Class
