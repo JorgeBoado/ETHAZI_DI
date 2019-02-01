@@ -84,7 +84,7 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.ForeColor = System.Drawing.Color.Crimson
-        Me.Label3.Location = New System.Drawing.Point(143, 117)
+        Me.Label3.Location = New System.Drawing.Point(132, 117)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 13)
         Me.Label3.TabIndex = 4

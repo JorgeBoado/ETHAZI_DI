@@ -67,6 +67,7 @@ Partial Class Form3
         Me.Label20 = New System.Windows.Forms.Label()
         Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -286,7 +287,7 @@ Partial Class Form3
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(131, 23)
         Me.Button1.TabIndex = 37
-        Me.Button1.Text = "Volver a la vista global"
+        Me.Button1.Text = "Back to global view"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Label12
@@ -391,7 +392,7 @@ Partial Class Form3
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(119, 23)
         Me.Button2.TabIndex = 50
-        Me.Button2.Text = "Editar"
+        Me.Button2.Text = "Modify"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'cp_in
@@ -471,8 +472,17 @@ Partial Class Form3
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(162, 23)
         Me.Button3.TabIndex = 145
-        Me.Button3.Text = "Ver en mapa"
+        Me.Button3.Text = "See in map"
         Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(55, 610)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(119, 23)
+        Me.Button4.TabIndex = 146
+        Me.Button4.Text = "Report"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'Form3
         '
@@ -480,6 +490,7 @@ Partial Class Form3
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(886, 669)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.ComboBox2)
@@ -578,4 +589,5 @@ End Sub
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
 End Class

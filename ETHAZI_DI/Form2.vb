@@ -63,6 +63,10 @@ Public Class Form2
 
     End Sub
 
+    Private Sub Form2_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        Application.Exit()
+    End Sub
+
     Private Sub Form2_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then Application.Exit()
     End Sub
@@ -167,7 +171,7 @@ Public Class Form2
         ElseIf direccion <> "" Then
 
             sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%' and municipalityCode = " & codigoMunicipal & ""
-            MsgBox("Estoy aqui")
+
         Else
             sql = "SELECT id, signatura, name, type, phone, address, postalcode, turismemail, capacity, type FROM lodging where name like '" & nombre & "%' and category like '%" & categoria & "%'"
 
@@ -219,10 +223,6 @@ Public Class Form2
         Mapa.alojamientoEspecifico = False
         Me.Close()
         Mapa.Show()
-    End Sub
-
-    Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
-
     End Sub
 
     Private Sub ReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportToolStripMenuItem.Click

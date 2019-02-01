@@ -1,7 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Text.RegularExpressions
+
 Public Class Insertar
     Private editable As Boolean
-
+    Private contCantidad As Integer
+    Private contTel As Integer
     Protected Sub fillMunicipality()
         Conexion.conectar()
         Try
@@ -72,6 +75,23 @@ Public Class Insertar
         Conexion.conectar()
         Dim nombreErr, firmaErr, tipoErr, cpErr, cmErr, muniErr, descErr, friendlyErr, physicalErr, zipErr, aceptado As Boolean
         Dim sql As String
+        Dim sMail As String
+        Dim mailCorrecto, webCorrecta As Boolean
+        sMail = Me.Text_email.Text
+        If validar_Web(Text_web.Text) Then
+            webCorrecta = True
+        Else
+            webCorrecta = False
+        End If
+
+        If Not validar_Mail(sMail) Or Me.Text_email.Text = "" Then
+
+            PictureBox1.Visible = True
+            mailCorrecto = False
+        Else
+            mailCorrecto = True
+            PictureBox1.Visible = False
+        End If
         If Text_firma.Text = "" Then
             firmaErr = True
         Else
@@ -122,7 +142,7 @@ Public Class Insertar
         Else
             tipoErr = False
         End If
-        If Not nombreErr And Not firmaErr And Not tipoErr And Not cpErr And Not cmErr And Not muniErr And Not descErr And Not friendlyErr And Not physicalErr And Not zipErr Then
+        If webCorrecta And Not nombreErr And Not firmaErr And Not tipoErr And Not cpErr And Not cmErr And Not muniErr And Not descErr And Not friendlyErr And Not physicalErr And Not zipErr And mailCorrecto Then
             aceptado = True
         End If
 
@@ -214,12 +234,17 @@ Public Class Insertar
         Conexion.desconectar()
     End Sub
 
+    Private Sub Insertar_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        Me.Close()
+        Form2.Show()
+    End Sub
+
     Private Sub Insertar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
         Me.cmb_municipio.DropDownStyle = ComboBoxStyle.DropDownList
         Me.ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
         Me.cp_in.DropDownStyle = ComboBoxStyle.DropDownList
-        
+
         form_center(Me)
         Conexion.conectar()
         fillMunicipality()
@@ -264,12 +289,12 @@ Public Class Insertar
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        
-            Form2.Show()
-            Me.Close()
+
+        Form2.Show()
+        Me.Close()
     End Sub
 
- 
+
 
     Private Sub cmb_municipio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_municipio.SelectedIndexChanged
         'Para que el codigo de municipio se rellene en funcion del municipio hago esto
@@ -350,13 +375,59 @@ Public Class Insertar
         Me.ComboBox2.Text = ""
     End Sub
 
-   
+
     Private Sub Text_capacity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_capacity.KeyPress
-        If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
-            e.Handled = True
-            MsgBox("Este campo es solo numerico")
+        If Text_capacity.Text.Length < 2 Then
+            If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
+                e.Handled = True
+                MsgBox("Este campo es solo numerico")
+
+            Else
+
+                e.Handled = False
+            End If
         Else
-            e.Handled = False
+            e.Handled = True
         End If
     End Sub
+
+
+    Private Sub Text_tel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_tel.KeyPress
+        If Text_tel.Text.Length < 9 Then
+            If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
+                e.Handled = True
+                MsgBox("Este campo es solo numerico")
+
+            Else
+
+                e.Handled = False
+            End If
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    Private Function validar_Mail(ByVal sMail As String) As Boolean
+        ' retorna true o false   
+        Return Regex.IsMatch(sMail, _
+                "^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$")
+    End Function
+    Private Function validar_Web(ByVal sWeb As String) As Boolean
+        Dim valido As Boolean
+        ' retorna true o false   
+        Dim web() As String
+        If Text_web.Text.Length Then
+            web = Split(Text_web.Text, ".")
+            If web(1) <> "" Then
+                If web.Length > 1 Then
+                    valido = True
+                Else
+                    valido = False
+                End If
+
+            End If
+        End If
+
+
+        Return valido
+    End Function
 End Class

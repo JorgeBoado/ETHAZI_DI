@@ -34,6 +34,11 @@ Public Class Filtros
         Me.Hide()
     End Sub
 
+    Private Sub Filtros_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        Me.Close()
+        Form2.Show()
+    End Sub
+
     Private Sub Filtros_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Me.Close()

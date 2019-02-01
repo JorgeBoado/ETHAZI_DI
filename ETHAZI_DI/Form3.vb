@@ -40,7 +40,7 @@ Public Class Form3
             fillCM(Me.cmb_municipio.SelectedItem)
 
         Catch ex As Exception
-            MsgBox(ex.Message & " msgbox 1")
+            MsgBox(ex.Message)
         End Try
         Conexion.desconectar()
     End Sub
@@ -63,7 +63,7 @@ Public Class Form3
             fillCP(muni)
 
         Catch ex As Exception
-            MsgBox(ex.Message & " msgbox 2")
+            MsgBox(ex.Message)
         End Try
         Conexion.desconectar()
     End Sub
@@ -88,7 +88,7 @@ Public Class Form3
             cp_in.SelectedItem = codeP
 
         Catch ex As Exception
-            MsgBox(ex.Message & " msgbox 3")
+            MsgBox(ex.Message)
         End Try
         Conexion.desconectar()
     End Sub
@@ -224,8 +224,8 @@ Public Class Form3
             cmb_municipio.Enabled = False
             ComboBox2.Enabled = False
 
-            Button2.Text = "Editar"
-            Button1.Text = "Volver a la vista global"
+            Button2.Text = "Modify"
+            Button1.Text = "Back to global view"
             editable = True
             sql = "UPDATE lodging SET signatura='" & Me.Text_firma.Text & "',name='" & Me.Text_nombre.Text & "',description='" & Me.Text_desc.Text & "',type='" & Me.ComboBox1.SelectedItem & "',phone='" & Me.Text_tel.Text & "',address='" & Me.Text_direccion.Text & "',marks='" & Me.Text_marca.Text & "',postalcode='" & cp_in.SelectedItem & "',municipalitycode='" & Me.cmb_in.Text & "',coordinates='" & Me.Text_coord.Text & "',category='" & Me.ComboBox2.SelectedItem & "',turismemail='" & Me.Text_email.Text & "',web='" & Me.Text_web.Text & "',capacity=" & Me.Text_capacity.Text & ",friendlyurl='" & Me.Text_FUrl.Text & "',physicalurl='" & Me.Text_Url.Text & "',zipfile='" & Me.Text_zipfile.Text & "' WHERE id = " & Me.TextBox2.Text
             Dim cmd As New MySqlCommand(sql, Conexion.conection)
@@ -253,8 +253,8 @@ Public Class Form3
             ComboBox2.Enabled = True
 
             editable = False
-            Button2.Text = "Guardar cambios"
-            Button1.Text = "Cancelar cambios"
+            Button2.Text = "Save changes"
+            Button1.Text = "Cancel"
 
         End If
 
@@ -298,6 +298,11 @@ Public Class Form3
     Private Sub cmb_municipio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_municipio.SelectedIndexChanged
         muni = Me.cmb_municipio.SelectedItem
         fillCM(Me.cmb_municipio.SelectedItem)
+    End Sub
+
+    Private Sub Form3_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        Me.Close()
+        Form2.Show()
     End Sub
    
     Private Sub Form3_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -344,5 +349,42 @@ Public Class Form3
         Mapa.mostrarAlojamiento(Me.TextBox2.Text)
         Mapa.ShowDialog()
 
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Form4.mostrarInformeEspecifico(Me.Text_nombre.Text)
+        Form4.informeEspecifico = True
+        Form4.ShowDialog()
+
+    End Sub
+    Private Sub Text_capacity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_capacity.KeyPress
+        If Text_capacity.Text.Length < 2 Then
+            If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
+                e.Handled = True
+                MsgBox("Este campo es solo numerico")
+
+            Else
+
+                e.Handled = False
+            End If
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+
+    Private Sub Text_tel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_tel.KeyPress
+        If Text_tel.Text.Length < 9 Then
+            If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
+                e.Handled = True
+                MsgBox("Este campo es solo numerico")
+
+            Else
+
+                e.Handled = False
+            End If
+        Else
+            e.Handled = True
+        End If
     End Sub
 End Class

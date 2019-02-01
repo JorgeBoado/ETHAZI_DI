@@ -1,6 +1,11 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class Mapa
     Public alojamientoEspecifico As Boolean
+
+    Private Sub Mapa_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        Me.Close()
+        Form2.Show()
+    End Sub
     Private Sub Mapa_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Me.Close()

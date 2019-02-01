@@ -76,6 +76,8 @@ Partial Class Insertar
         Me.AmigosDataSet1 = New ETHAZI_DI.AmigosDataSet()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.picSign, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picName, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picType, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,6 +90,8 @@ Partial Class Insertar
         CType(Me.picZip, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AmigosDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button2
@@ -96,7 +100,7 @@ Partial Class Insertar
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(119, 23)
         Me.Button2.TabIndex = 19
-        Me.Button2.Text = "Insertar"
+        Me.Button2.Text = "Insert"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
@@ -105,7 +109,7 @@ Partial Class Insertar
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(131, 23)
         Me.Button1.TabIndex = 18
-        Me.Button1.Text = "Volver a la vista global"
+        Me.Button1.Text = "Back to global view"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'cmb_municipio
@@ -466,7 +470,7 @@ Partial Class Insertar
         'picCP
         '
         Me.picCP.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
-        Me.picCP.Location = New System.Drawing.Point(857, 289)
+        Me.picCP.Location = New System.Drawing.Point(861, 295)
         Me.picCP.Name = "picCP"
         Me.picCP.Size = New System.Drawing.Size(31, 27)
         Me.picCP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -572,12 +576,36 @@ Partial Class Insertar
         Me.VisualStyler1.License = CType(resources.GetObject("VisualStyler1.License"), SkinSoft.VisualStyler.Licensing.VisualStylerLicense)
         Me.VisualStyler1.LoadVisualStyle(Nothing, "Office2007 (Black).vssf")
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.PictureBox1.Location = New System.Drawing.Point(857, 187)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(31, 27)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 144
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.PictureBox2.Location = New System.Drawing.Point(857, 221)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(31, 27)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 145
+        Me.PictureBox2.TabStop = False
+        Me.PictureBox2.Visible = False
+        '
         'Insertar
         '
         Me.AcceptButton = Me.Button2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1037, 617)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Splitter1)
         Me.Controls.Add(Me.ComboBox2)
@@ -647,6 +675,8 @@ Partial Class Insertar
         CType(Me.picZip, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AmigosDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -703,4 +733,6 @@ End Sub
     Friend WithEvents AmigosDataSet1 As ETHAZI_DI.AmigosDataSet
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class
