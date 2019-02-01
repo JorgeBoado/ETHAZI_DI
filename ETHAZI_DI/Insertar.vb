@@ -227,6 +227,12 @@ Public Class Insertar
                 picName.Visible = True
             Else
                 picName.Visible = False
+                
+            End If
+            If Not webCorrecta Then
+                PictureBox2.Visible = True
+            Else
+                PictureBox2.Visible = False
             End If
         End If
 
@@ -289,7 +295,7 @@ Public Class Insertar
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        Form2.mostrarTabla()
         Form2.Show()
         Me.Close()
     End Sub
@@ -377,18 +383,16 @@ Public Class Insertar
 
 
     Private Sub Text_capacity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_capacity.KeyPress
-        If Text_capacity.Text.Length < 2 Then
-            If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
-                e.Handled = True
-                MsgBox("Este campo es solo numerico")
 
-            Else
-
-                e.Handled = False
-            End If
-        Else
+        If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
             e.Handled = True
+            MsgBox("Este campo es solo numerico")
+
+        Else
+
+            e.Handled = False
         End If
+      
     End Sub
 
 
@@ -415,7 +419,7 @@ Public Class Insertar
         Dim valido As Boolean
         ' retorna true o false   
         Dim web() As String
-        If Text_web.Text.Length Then
+        If Text_web.Text.Contains(".") Then
             web = Split(Text_web.Text, ".")
             If web(1) <> "" Then
                 If web.Length > 1 Then
@@ -425,9 +429,12 @@ Public Class Insertar
                 End If
 
             End If
+        Else
+            valido = False
         End If
 
 
         Return valido
     End Function
+
 End Class

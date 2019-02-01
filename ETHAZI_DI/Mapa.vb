@@ -2,10 +2,6 @@
 Public Class Mapa
     Public alojamientoEspecifico As Boolean
 
-    Private Sub Mapa_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
-        Me.Close()
-        Form2.Show()
-    End Sub
     Private Sub Mapa_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Me.Close()
@@ -37,8 +33,6 @@ Public Class Mapa
     End Sub
 
     Private Sub Mapa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
         form_center(Me)
         Conexion.conectar()
         Dim sql As String
@@ -52,10 +46,21 @@ Public Class Mapa
 
 
 
+
         Conexion.desconectar()
     End Sub
 
-
+    Public Sub mostrarPorDefecto()
+        Dim urlMaps As String
+        'Concatenamos la dirección con el Textbox añadimos la última sentencia para indicar que sólo se muestre el mapa
+        'urlMaps = "http://maps.google.es/maps?q=" & txtdireccion.Text & "&output=embed" 'Creamos una variable direccion para que el WebBrowser lo pueda abrir puesto que no puede abrir directamente un string
+        urlMaps = "http://maps.google.es/maps?q="
+        Dim direccion As New Uri(urlMaps)
+        'ASignamos como URL la direccion
+        WebBrowser1.Url = direccion
+        alojamientoEspecifico = False
+        Conexion.desconectar()
+    End Sub
 
     Private Sub ToolStripComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Conexion.conectar()
@@ -82,8 +87,17 @@ Public Class Mapa
     End Sub
 
     Private Sub AtrasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AtrasToolStripMenuItem.Click
-        Me.Close()
-        Form2.Show()
+        MsgBox(alojamientoEspecifico)
+        If alojamientoEspecifico Then
+            MsgBox("vuelvo al detalle")
+            Form3.Show()
+            Me.Hide()
+        Else
+            MsgBox("vuelvo al gridview")
+            Me.Close()
+            Form2.Show()
+        End If
+
     End Sub
     Public Sub form_center(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
         'Esta funcion es para que el formulario aparezca en el centro de la pantalla

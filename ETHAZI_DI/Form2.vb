@@ -13,7 +13,7 @@ Public Class Form2
     Dim hexColor As Color
     Dim das1 As New DataSet
 
-    Private Sub mostrarTabla()
+    Public Sub mostrarTabla()
 
         Try
             'Para server
@@ -89,7 +89,8 @@ Public Class Form2
 
 
     Private Sub CerrarSesionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesionToolStripMenuItem.Click
-        Me.Close()
+        Form1.TextBox1.Focus()
+        Me.Hide()
         Conex.Conexion.desconectar()
 
         Form1.Show()
@@ -133,7 +134,7 @@ Public Class Form2
 
         Form3.datosACargar(id)
         Form3.Show()
-        Me.Close()
+        Me.Hide()
     End Sub
 
 
@@ -193,7 +194,7 @@ Public Class Form2
 
     Private Sub FiltrarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FiltrarToolStripMenuItem.Click
         Filtros.Show()
-        Me.Close()
+        Me.Hide()
     End Sub
 
     Public Sub form_center(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
@@ -221,12 +222,13 @@ Public Class Form2
 
     Private Sub MapaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MapaToolStripMenuItem.Click
         Mapa.alojamientoEspecifico = False
-        Me.Close()
+        Mapa.mostrarPorDefecto()
+        Me.Hide()
         Mapa.Show()
     End Sub
 
     Private Sub ReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportToolStripMenuItem.Click
         Form4.Show()
-        Me.Close()
+        Me.Hide()
     End Sub
 End Class

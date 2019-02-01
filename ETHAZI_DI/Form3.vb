@@ -1,4 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Text.RegularExpressions
+
 Public Class Form3
     Private primercombo As String
     Private segundocombo As String
@@ -193,8 +195,10 @@ Public Class Form3
             datosACargar(IDfijo)
             Button2.PerformClick()
         Else
+            Form2.mostrarTabla()
             Form2.Show()
             Me.Close()
+
         End If
 
     End Sub
@@ -227,10 +231,7 @@ Public Class Form3
             Button2.Text = "Modify"
             Button1.Text = "Back to global view"
             editable = True
-            sql = "UPDATE lodging SET signatura='" & Me.Text_firma.Text & "',name='" & Me.Text_nombre.Text & "',description='" & Me.Text_desc.Text & "',type='" & Me.ComboBox1.SelectedItem & "',phone='" & Me.Text_tel.Text & "',address='" & Me.Text_direccion.Text & "',marks='" & Me.Text_marca.Text & "',postalcode='" & cp_in.SelectedItem & "',municipalitycode='" & Me.cmb_in.Text & "',coordinates='" & Me.Text_coord.Text & "',category='" & Me.ComboBox2.SelectedItem & "',turismemail='" & Me.Text_email.Text & "',web='" & Me.Text_web.Text & "',capacity=" & Me.Text_capacity.Text & ",friendlyurl='" & Me.Text_FUrl.Text & "',physicalurl='" & Me.Text_Url.Text & "',zipfile='" & Me.Text_zipfile.Text & "' WHERE id = " & Me.TextBox2.Text
-            Dim cmd As New MySqlCommand(sql, Conexion.conection)
-            cmd.ExecuteNonQuery()
-
+            ejecutarQuery()
 
         Else
             Text_capacity.Enabled = True
@@ -259,7 +260,7 @@ Public Class Form3
         End If
 
 
-        Conexion.desconectar()
+            Conexion.desconectar()
 
 
     End Sub
@@ -304,7 +305,7 @@ Public Class Form3
         Me.Close()
         Form2.Show()
     End Sub
-   
+
     Private Sub Form3_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Me.Close()
@@ -343,9 +344,30 @@ Public Class Form3
         frm.StartPosition = FormStartPosition.Manual
         frm.Location = New Point(x, y)
     End Sub
+    Private Function validar_Web(ByVal sWeb As String) As Boolean
+        Dim valido As Boolean
+        ' retorna true o false   
+        Dim web() As String
+        If Text_web.Text.Contains(".") Then
+            web = Split(Text_web.Text, ".")
+            If web(1) <> "" Then
+                If web.Length > 1 Then
+                    valido = True
+                Else
+                    valido = False
+                End If
 
+            End If
+        Else
+            valido = False
+        End If
+
+
+        Return valido
+    End Function
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Mapa.alojamientoEspecifico = True
         Mapa.mostrarAlojamiento(Me.TextBox2.Text)
         Mapa.ShowDialog()
 
@@ -371,7 +393,11 @@ Public Class Form3
             e.Handled = True
         End If
     End Sub
-
+    Private Function validar_Mail(ByVal sMail As String) As Boolean
+        ' retorna true o false   
+        Return Regex.IsMatch(sMail, _
+                "^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$")
+    End Function
 
     Private Sub Text_tel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_tel.KeyPress
         If Text_tel.Text.Length < 9 Then
@@ -387,4 +413,140 @@ Public Class Form3
             e.Handled = True
         End If
     End Sub
+
+    Private Sub ejecutarQuery()
+        Dim nombreErr, firmaErr, tipoErr, cpErr, cmErr, muniErr, descErr, friendlyErr, physicalErr, zipErr, aceptado As Boolean
+        Dim sql As String
+        Dim sMail As String
+        Dim mailCorrecto, webCorrecta As Boolean
+        sMail = Me.Text_email.Text
+        If validar_Web(Text_web.Text) Then
+            webCorrecta = True
+        Else
+            webCorrecta = False
+        End If
+
+        If Not validar_Mail(sMail) Or Me.Text_email.Text = "" Then
+
+            PictureBox1.Visible = True
+            mailCorrecto = False
+        Else
+            mailCorrecto = True
+            PictureBox1.Visible = False
+        End If
+        If Text_firma.Text = "" Then
+            firmaErr = True
+        Else
+            firmaErr = False
+        End If
+        If Text_nombre.Text = "" Then
+            nombreErr = True
+        Else
+            nombreErr = False
+        End If
+        If cmb_municipio.Text = "" Then
+            muniErr = True
+        Else
+            muniErr = False
+        End If
+        If cmb_in.Text = "" Then
+            cmErr = True
+        Else
+            cmErr = False
+        End If
+        If cp_in.Text = "" Then
+            cpErr = True
+        Else
+            cpErr = False
+        End If
+        If Text_desc.Text = "" Then
+            descErr = True
+        Else
+            descErr = False
+        End If
+        If Text_FUrl.Text = "" Then
+            friendlyErr = True
+        Else
+            friendlyErr = False
+        End If
+        If Text_Url.Text = "" Then
+            physicalErr = True
+        Else
+            physicalErr = False
+        End If
+        If Text_zipfile.Text = "" Then
+            zipErr = True
+        Else
+            zipErr = False
+        End If
+        If ComboBox1.Text = "" Then
+            tipoErr = True
+        Else
+            tipoErr = False
+        End If
+        If webCorrecta And Not nombreErr And Not firmaErr And Not tipoErr And Not cpErr And Not cmErr And Not muniErr And Not descErr And Not friendlyErr And Not physicalErr And Not zipErr And mailCorrecto Then
+            aceptado = True
+        End If
+
+        If aceptado Then
+            PictureBox2.Visible = False
+            sql = "UPDATE lodging SET signatura='" & Me.Text_firma.Text & "',name='" & Me.Text_nombre.Text & "',description='" & Me.Text_desc.Text & "',type='" & Me.ComboBox1.SelectedItem & "',phone='" & Me.Text_tel.Text & "',address='" & Me.Text_direccion.Text & "',marks='" & Me.Text_marca.Text & "',postalcode='" & cp_in.SelectedItem & "',municipalitycode='" & Me.cmb_in.Text & "',coordinates='" & Me.Text_coord.Text & "',category='" & Me.ComboBox2.SelectedItem & "',turismemail='" & Me.Text_email.Text & "',web='" & Me.Text_web.Text & "',capacity=" & Me.Text_capacity.Text & ",friendlyurl='" & Me.Text_FUrl.Text & "',physicalurl='" & Me.Text_Url.Text & "',zipfile='" & Me.Text_zipfile.Text & "' WHERE id = " & Me.TextBox2.Text
+            Dim cmd As New MySqlCommand(sql, Conexion.conection)
+            cmd.ExecuteNonQuery()
+        Else
+
+            If zipErr Then
+                picZip.Visible = True
+            Else
+                picZip.Visible = False
+            End If
+            If descErr Then
+                picDesc.Visible = True
+            Else
+                picDesc.Visible = False
+            End If
+            If physicalErr Then
+                picPhy.Visible = True
+            Else
+                picPhy.Visible = False
+            End If
+            If friendlyErr Then
+                picFriend.Visible = True
+            Else
+                picFriend.Visible = False
+            End If
+            If cpErr Then
+                picCP.Visible = True
+            Else
+                picCP.Visible = False
+            End If
+            If cmErr Then
+                picCM.Visible = True
+            Else
+                picCM.Visible = False
+            End If
+            If tipoErr Then
+                picType.Visible = True
+            Else
+                picType.Visible = False
+            End If
+            If firmaErr Then
+                picSign.Visible = True
+            Else
+                picSign.Visible = False
+            End If
+            If nombreErr Then
+                picName.Visible = True
+            Else
+                picName.Visible = False
+
+            End If
+            If Not webCorrecta Then
+                PictureBox2.Visible = True
+            Else
+                PictureBox2.Visible = False
+            End If
+        End If
+    End Sub
+
 End Class

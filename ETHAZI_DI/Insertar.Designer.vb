@@ -152,6 +152,7 @@ Partial Class Insertar
         '
         Me.Text_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_marca.Location = New System.Drawing.Point(652, 150)
+        Me.Text_marca.MaxLength = 50
         Me.Text_marca.Name = "Text_marca"
         Me.Text_marca.Size = New System.Drawing.Size(202, 24)
         Me.Text_marca.TabIndex = 6
@@ -244,6 +245,7 @@ Partial Class Insertar
         '
         Me.Text_firma.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_firma.Location = New System.Drawing.Point(268, 12)
+        Me.Text_firma.MaxLength = 25
         Me.Text_firma.Name = "Text_firma"
         Me.Text_firma.Size = New System.Drawing.Size(281, 24)
         Me.Text_firma.TabIndex = 0
@@ -268,6 +270,7 @@ Partial Class Insertar
         '
         Me.Text_capacity.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_capacity.Location = New System.Drawing.Point(268, 107)
+        Me.Text_capacity.MaxLength = 3
         Me.Text_capacity.Name = "Text_capacity"
         Me.Text_capacity.Size = New System.Drawing.Size(136, 24)
         Me.Text_capacity.TabIndex = 2
@@ -408,6 +411,7 @@ Partial Class Insertar
         '
         Me.Text_nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_nombre.Location = New System.Drawing.Point(268, 63)
+        Me.Text_nombre.MaxLength = 50
         Me.Text_nombre.Name = "Text_nombre"
         Me.Text_nombre.Size = New System.Drawing.Size(586, 24)
         Me.Text_nombre.TabIndex = 1

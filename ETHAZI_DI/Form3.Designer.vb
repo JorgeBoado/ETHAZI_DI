@@ -68,7 +68,31 @@ Partial Class Form3
         Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.picZip = New System.Windows.Forms.PictureBox()
+        Me.picPhy = New System.Windows.Forms.PictureBox()
+        Me.picFriend = New System.Windows.Forms.PictureBox()
+        Me.picDesc = New System.Windows.Forms.PictureBox()
+        Me.picCP = New System.Windows.Forms.PictureBox()
+        Me.picCM = New System.Windows.Forms.PictureBox()
+        Me.picMuni = New System.Windows.Forms.PictureBox()
+        Me.picType = New System.Windows.Forms.PictureBox()
+        Me.picName = New System.Windows.Forms.PictureBox()
+        Me.picSign = New System.Windows.Forms.PictureBox()
         CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picZip, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picPhy, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDesc, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picCP, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picCM, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picMuni, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picType, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picName, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picSign, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Text_nombre
@@ -76,6 +100,7 @@ Partial Class Form3
         Me.Text_nombre.Enabled = False
         Me.Text_nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_nombre.Location = New System.Drawing.Point(163, 100)
+        Me.Text_nombre.MaxLength = 50
         Me.Text_nombre.Name = "Text_nombre"
         Me.Text_nombre.Size = New System.Drawing.Size(586, 24)
         Me.Text_nombre.TabIndex = 0
@@ -180,7 +205,7 @@ Partial Class Form3
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(536, 341)
+        Me.Label7.Location = New System.Drawing.Point(552, 340)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(94, 18)
         Me.Label7.TabIndex = 16
@@ -221,6 +246,7 @@ Partial Class Form3
         Me.Text_capacity.Enabled = False
         Me.Text_capacity.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_capacity.Location = New System.Drawing.Point(163, 144)
+        Me.Text_capacity.MaxLength = 3
         Me.Text_capacity.Name = "Text_capacity"
         Me.Text_capacity.Size = New System.Drawing.Size(136, 24)
         Me.Text_capacity.TabIndex = 22
@@ -248,6 +274,7 @@ Partial Class Form3
         Me.Text_firma.Enabled = False
         Me.Text_firma.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Text_firma.Location = New System.Drawing.Point(468, 46)
+        Me.Text_firma.MaxLength = 25
         Me.Text_firma.Name = "Text_firma"
         Me.Text_firma.Size = New System.Drawing.Size(281, 24)
         Me.Text_firma.TabIndex = 27
@@ -313,7 +340,7 @@ Partial Class Form3
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(295, 326)
+        Me.Label14.Location = New System.Drawing.Point(316, 326)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(88, 36)
         Me.Label14.TabIndex = 40
@@ -420,7 +447,7 @@ Partial Class Form3
         Me.cmb_municipio.FormattingEnabled = True
         Me.cmb_municipio.Location = New System.Drawing.Point(163, 341)
         Me.cmb_municipio.Name = "cmb_municipio"
-        Me.cmb_municipio.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_municipio.Size = New System.Drawing.Size(110, 21)
         Me.cmb_municipio.TabIndex = 54
         '
         'cmb_in
@@ -484,12 +511,156 @@ Partial Class Form3
         Me.Button4.Text = "Report"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.PictureBox2.Location = New System.Drawing.Point(753, 258)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(31, 27)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 158
+        Me.PictureBox2.TabStop = False
+        Me.PictureBox2.Visible = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.PictureBox1.Location = New System.Drawing.Point(753, 224)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(31, 27)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 157
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
+        '
+        'picZip
+        '
+        Me.picZip.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picZip.Location = New System.Drawing.Point(757, 564)
+        Me.picZip.Name = "picZip"
+        Me.picZip.Size = New System.Drawing.Size(31, 27)
+        Me.picZip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picZip.TabIndex = 156
+        Me.picZip.TabStop = False
+        Me.picZip.Visible = False
+        '
+        'picPhy
+        '
+        Me.picPhy.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picPhy.Location = New System.Drawing.Point(757, 531)
+        Me.picPhy.Name = "picPhy"
+        Me.picPhy.Size = New System.Drawing.Size(31, 27)
+        Me.picPhy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picPhy.TabIndex = 155
+        Me.picPhy.TabStop = False
+        Me.picPhy.Visible = False
+        '
+        'picFriend
+        '
+        Me.picFriend.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picFriend.Location = New System.Drawing.Point(757, 498)
+        Me.picFriend.Name = "picFriend"
+        Me.picFriend.Size = New System.Drawing.Size(31, 27)
+        Me.picFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picFriend.TabIndex = 154
+        Me.picFriend.TabStop = False
+        Me.picFriend.Visible = False
+        '
+        'picDesc
+        '
+        Me.picDesc.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picDesc.Location = New System.Drawing.Point(757, 404)
+        Me.picDesc.Name = "picDesc"
+        Me.picDesc.Size = New System.Drawing.Size(31, 27)
+        Me.picDesc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDesc.TabIndex = 153
+        Me.picDesc.TabStop = False
+        Me.picDesc.Visible = False
+        '
+        'picCP
+        '
+        Me.picCP.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picCP.Location = New System.Drawing.Point(757, 332)
+        Me.picCP.Name = "picCP"
+        Me.picCP.Size = New System.Drawing.Size(31, 27)
+        Me.picCP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picCP.TabIndex = 152
+        Me.picCP.TabStop = False
+        Me.picCP.Visible = False
+        '
+        'picCM
+        '
+        Me.picCM.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picCM.Location = New System.Drawing.Point(515, 326)
+        Me.picCM.Name = "picCM"
+        Me.picCM.Size = New System.Drawing.Size(31, 27)
+        Me.picCM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picCM.TabIndex = 151
+        Me.picCM.TabStop = False
+        Me.picCM.Visible = False
+        '
+        'picMuni
+        '
+        Me.picMuni.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picMuni.Location = New System.Drawing.Point(279, 326)
+        Me.picMuni.Name = "picMuni"
+        Me.picMuni.Size = New System.Drawing.Size(31, 27)
+        Me.picMuni.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picMuni.TabIndex = 150
+        Me.picMuni.TabStop = False
+        Me.picMuni.Visible = False
+        '
+        'picType
+        '
+        Me.picType.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picType.Location = New System.Drawing.Point(549, 138)
+        Me.picType.Name = "picType"
+        Me.picType.Size = New System.Drawing.Size(29, 27)
+        Me.picType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picType.TabIndex = 149
+        Me.picType.TabStop = False
+        Me.picType.Visible = False
+        '
+        'picName
+        '
+        Me.picName.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picName.Location = New System.Drawing.Point(765, 94)
+        Me.picName.Name = "picName"
+        Me.picName.Size = New System.Drawing.Size(31, 27)
+        Me.picName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picName.TabIndex = 148
+        Me.picName.TabStop = False
+        Me.picName.Visible = False
+        '
+        'picSign
+        '
+        Me.picSign.Image = Global.ETHAZI_DI.My.Resources.Resources.advertencia
+        Me.picSign.Location = New System.Drawing.Point(753, 40)
+        Me.picSign.Name = "picSign"
+        Me.picSign.Size = New System.Drawing.Size(31, 27)
+        Me.picSign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picSign.TabIndex = 147
+        Me.picSign.TabStop = False
+        Me.picSign.Visible = False
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(886, 669)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.picZip)
+        Me.Controls.Add(Me.picPhy)
+        Me.Controls.Add(Me.picFriend)
+        Me.Controls.Add(Me.picDesc)
+        Me.Controls.Add(Me.picCP)
+        Me.Controls.Add(Me.picCM)
+        Me.Controls.Add(Me.picMuni)
+        Me.Controls.Add(Me.picType)
+        Me.Controls.Add(Me.picName)
+        Me.Controls.Add(Me.picSign)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label20)
@@ -542,6 +713,18 @@ Partial Class Form3
         Me.Name = "Form3"
         Me.Text = " "
         CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picZip, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picPhy, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDesc, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picCP, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picCM, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picMuni, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picType, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picName, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picSign, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -590,4 +773,16 @@ End Sub
     Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents picZip As System.Windows.Forms.PictureBox
+    Friend WithEvents picPhy As System.Windows.Forms.PictureBox
+    Friend WithEvents picFriend As System.Windows.Forms.PictureBox
+    Friend WithEvents picDesc As System.Windows.Forms.PictureBox
+    Friend WithEvents picCP As System.Windows.Forms.PictureBox
+    Friend WithEvents picCM As System.Windows.Forms.PictureBox
+    Friend WithEvents picMuni As System.Windows.Forms.PictureBox
+    Friend WithEvents picType As System.Windows.Forms.PictureBox
+    Friend WithEvents picName As System.Windows.Forms.PictureBox
+    Friend WithEvents picSign As System.Windows.Forms.PictureBox
 End Class
