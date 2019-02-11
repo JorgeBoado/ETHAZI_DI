@@ -87,13 +87,13 @@ Public Class Mapa
     End Sub
 
     Private Sub AtrasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AtrasToolStripMenuItem.Click
-        MsgBox(alojamientoEspecifico)
+
         If alojamientoEspecifico Then
-            MsgBox("vuelvo al detalle")
+
             Form3.Show()
             Me.Hide()
         Else
-            MsgBox("vuelvo al gridview")
+
             Me.Close()
             Form2.Show()
         End If

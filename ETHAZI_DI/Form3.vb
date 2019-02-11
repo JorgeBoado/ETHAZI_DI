@@ -13,6 +13,7 @@ Public Class Form3
     Private categoria As String
 
     Protected Sub fillMunicipality(Optional cp As String = Nothing, Optional cm As String = Nothing)
+        'En este metodo relleno el combobox de la municipalidad en base al codigo postal
         Conexion.conectar()
         Try
 
@@ -47,7 +48,7 @@ Public Class Form3
         Conexion.desconectar()
     End Sub
     Protected Sub fillCM(Optional municipality As String = Nothing)
-
+        'En este metodo relleno el codigo municipal dependiendo de la municipalidad
         Conexion.conectar()
         Try
 
@@ -96,6 +97,9 @@ Public Class Form3
     End Sub
 
     Public Sub datosACargar(id As Integer)
+        'Este metodo es el que llamo desde la vista del gridview(Form2) para llenar todos los datos de la vista del detalle, 
+        'comprobando que no haya valores nulos para evitar excepciones
+
         IDfijo = id
         Conexion.conectar()
         Dim sql As String = "Select * from lodging where id= " & id
@@ -191,10 +195,13 @@ Public Class Form3
 
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        'En este metodo dependiendo de si ha dado a editar datos o no hago diferentes cosas
+        'Si esta en la parte de editar datos, revertira todos los cambios que haya hecho el usuario, por si se ha equivocado
         If Not editable Then
             datosACargar(IDfijo)
             Button2.PerformClick()
         Else
+            'Si no esta en la parte de editar datos te devuelve a la ventana del gridview recargandolo por si ha editado algun valor
             Form2.mostrarTabla()
             Form2.Show()
             Me.Close()
@@ -204,6 +211,7 @@ Public Class Form3
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'En este metodo hago editables o no los campos
         Conexion.conectar()
 
         Dim sql As String
@@ -266,6 +274,7 @@ Public Class Form3
     End Sub
 
     Private Sub fillCategory()
+        'Aqui se llena el combobox de las categorias
         Conexion.conectar()
         Dim sql As String
         sql = "select distinct category from lodging"
@@ -281,6 +290,7 @@ Public Class Form3
     End Sub
 
     Private Sub fillType()
+        'Aqui se llena el combobox de los tipos
         Conexion.conectar()
         Dim sql As String
         sql = "select distinct type from lodging"
@@ -297,6 +307,7 @@ Public Class Form3
     End Sub
 
     Private Sub cmb_municipio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_municipio.SelectedIndexChanged
+        'Aqui llamo al metodo de cargar el codigo municipalidad pasandole por parametro el municipio
         muni = Me.cmb_municipio.SelectedItem
         fillCM(Me.cmb_municipio.SelectedItem)
     End Sub
@@ -307,6 +318,7 @@ Public Class Form3
     End Sub
 
     Private Sub Form3_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        'Este codigo es para que si el usuario da al boton escape, la visa de detalle se cierre automaticamente
         If e.KeyCode = Keys.Escape Then
             Me.Close()
             Form2.Show()
@@ -315,6 +327,7 @@ Public Class Form3
     End Sub
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles Me.Load
+
         form_center(Me)
         fillMunicipality(codeP, codeM)
         fillCategory()
@@ -323,7 +336,7 @@ Public Class Form3
     End Sub
 
     Public Sub form_center(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
-
+        'Este metodo centra los formularios
         Dim x As Integer
         Dim y As Integer
         Dim r As Rectangle
@@ -345,6 +358,7 @@ Public Class Form3
         frm.Location = New Point(x, y)
     End Sub
     Private Function validar_Web(ByVal sWeb As String) As Boolean
+        'Metodo para validar la web
         Dim valido As Boolean
         ' retorna true o false   
         Dim web() As String
@@ -367,6 +381,7 @@ Public Class Form3
     End Function
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        'Metodo para mostrar el mapa del alojamiento cargado en la vista del detalle
         Mapa.alojamientoEspecifico = True
         Mapa.mostrarAlojamiento(Me.TextBox2.Text)
         Mapa.ShowDialog()
@@ -374,24 +389,24 @@ Public Class Form3
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        'Metodo para mostrar el informe del alojamiento cargado en la vista del detalle
         Form4.mostrarInformeEspecifico(Me.Text_nombre.Text)
         Form4.informeEspecifico = True
         Form4.ShowDialog()
 
     End Sub
     Private Sub Text_capacity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_capacity.KeyPress
-        If Text_capacity.Text.Length < 2 Then
-            If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
-                e.Handled = True
-                MsgBox("Este campo es solo numerico")
+        'Metodo para controlar la capacidad
 
-            Else
-
-                e.Handled = False
-            End If
-        Else
+        If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
             e.Handled = True
+            MsgBox("Este campo es solo numerico")
+
+        Else
+
+            e.Handled = False
         End If
+       
     End Sub
     Private Function validar_Mail(ByVal sMail As String) As Boolean
         ' retorna true o false   
@@ -400,6 +415,7 @@ Public Class Form3
     End Function
 
     Private Sub Text_tel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_tel.KeyPress
+        'Metodo para validar el telefono
         If Text_tel.Text.Length < 9 Then
             If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
                 e.Handled = True
@@ -415,6 +431,7 @@ Public Class Form3
     End Sub
 
     Private Sub ejecutarQuery()
+        'Metodo en el que si todos los valores son correctos, ejecute la query, y si no lo son, muestre cuales tienen errores
         Dim nombreErr, firmaErr, tipoErr, cpErr, cmErr, muniErr, descErr, friendlyErr, physicalErr, zipErr, aceptado As Boolean
         Dim sql As String
         Dim sMail As String

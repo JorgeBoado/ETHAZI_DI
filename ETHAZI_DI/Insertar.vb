@@ -24,11 +24,12 @@ Public Class Insertar
 
 
         Catch ex As Exception
-            MsgBox(ex.Message & " msgbox 1")
+            MsgBox(ex.Message)
         End Try
         Conexion.desconectar()
     End Sub
     Protected Sub fillCM(municipality As String)
+        'Metodo para rellenear el combobox del codigo municipal
         Conexion.conectar()
         Try
 
@@ -45,11 +46,14 @@ Public Class Insertar
             fillCP(municipality)
 
         Catch ex As Exception
-            MsgBox(ex.Message & " msgbox 2")
+            MsgBox(ex.Message)
         End Try
         Conexion.desconectar()
     End Sub
+
     Protected Sub fillCP(municipality As String)
+        'Metodo para rellenear el combobox del codigo postal
+
         Me.cp_in.Items.Clear()
         Conexion.conectar()
         Try
@@ -67,11 +71,12 @@ Public Class Insertar
             dr.Close()
 
         Catch ex As Exception
-            MsgBox(ex.Message & " msgbox 3")
+            MsgBox(ex.Message)
         End Try
         Conexion.desconectar()
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'Aqui verificamos que todos los campos sean correctos
         Conexion.conectar()
         Dim nombreErr, firmaErr, tipoErr, cpErr, cmErr, muniErr, descErr, friendlyErr, physicalErr, zipErr, aceptado As Boolean
         Dim sql As String
@@ -227,7 +232,7 @@ Public Class Insertar
                 picName.Visible = True
             Else
                 picName.Visible = False
-                
+
             End If
             If Not webCorrecta Then
                 PictureBox2.Visible = True
@@ -266,7 +271,7 @@ Public Class Insertar
 
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
-
+        'En este metodo se carga el combobox de la municipalidad en base al codigo postal
         Conexion.conectar()
         Dim cargarCp As String
         cargarCp = "Select municipalitycode from postalCode where postalcode = '" & Me.cp_in.SelectedItem & "'"
@@ -361,6 +366,7 @@ Public Class Insertar
     End Sub
 
     Private Sub limpiarCampos()
+        'En este metodo se vacian los campos
         Me.Text_capacity.Text = ""
         Me.Text_coord.Text = ""
         Me.Text_desc.Text = ""
@@ -383,7 +389,7 @@ Public Class Insertar
 
 
     Private Sub Text_capacity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_capacity.KeyPress
-
+        'Se valida el campo de capacidad
         If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
             e.Handled = True
             MsgBox("Este campo es solo numerico")
@@ -397,6 +403,7 @@ Public Class Insertar
 
 
     Private Sub Text_tel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Text_tel.KeyPress
+        'Se valida el campo de telefono
         If Text_tel.Text.Length < 9 Then
             If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
                 e.Handled = True

@@ -83,12 +83,14 @@ Public Class Form2
 
 
     Private Sub QueTalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QueTalToolStripMenuItem.Click
+        'Aqui te manda a la ventana de insertar
         Insertar.Show()
         Me.Hide()
     End Sub
 
 
     Private Sub CerrarSesionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesionToolStripMenuItem.Click
+        'Aqui cierras sesion
         Form1.TextBox1.Focus()
         Me.Hide()
         Conex.Conexion.desconectar()
@@ -97,6 +99,7 @@ Public Class Form2
     End Sub
 
     Private Sub BorrarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BorrarToolStripMenuItem.Click
+        'En este metodo se borra el registro
         Conex.Conexion.conectar()
         Dim mifila As Integer
         mifila = DataGridView2.CurrentRow.Index
@@ -118,6 +121,7 @@ Public Class Form2
     End Sub
 
     Private Sub VerDetalleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerDetalleToolStripMenuItem.Click
+        'En este metodo se va al metodo del detalle cogiendo el valor de la primera celda (id) para cargarlo mas tarde
         Dim mifila As Integer
         mifila = DataGridView2.CurrentRow.Index
         Dim id As Integer
@@ -139,6 +143,7 @@ Public Class Form2
 
 
     Public Sub filtrar(nombre As String, categoria As String, capacidad As String, direccion As String, tipo As String)
+        'En base a lo que te devuelva el formulario de los filtros se hara una query u otra
         Conex.Conexion.conectar()
         Dim sql As String
         sql = "select municipalitycode from lodging where municipalitycode = (Select distinct municipalityCode from postalCode where municipality = '" & direccion & "')"
@@ -193,12 +198,13 @@ Public Class Form2
     End Sub
 
     Private Sub FiltrarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FiltrarToolStripMenuItem.Click
+        'Aqui se te envia a la ventana de filtros
         Filtros.Show()
         Me.Hide()
     End Sub
 
     Public Sub form_center(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
-
+        'Este metodo centra el formulario
         Dim x As Integer
         Dim y As Integer
         Dim r As Rectangle
@@ -221,6 +227,7 @@ Public Class Form2
     End Sub
 
     Private Sub MapaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MapaToolStripMenuItem.Click
+        'Aqui te manda a la ventana del mapa
         Mapa.alojamientoEspecifico = False
         Mapa.mostrarPorDefecto()
         Me.Hide()
@@ -228,6 +235,7 @@ Public Class Form2
     End Sub
 
     Private Sub ReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportToolStripMenuItem.Click
+        'Aqui te manda a la ventana de los informes
         Form4.Show()
         Me.Hide()
     End Sub

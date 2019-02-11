@@ -54,8 +54,8 @@ Partial Class Mapa
         '
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripComboBox1, Me.AtrasToolStripMenuItem})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(69, 20)
-        Me.ToolStripMenuItem1.Text = "Opciones"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(61, 20)
+        Me.ToolStripMenuItem1.Text = "Options"
         '
         'ToolStripComboBox1
         '
@@ -66,7 +66,7 @@ Partial Class Mapa
         '
         Me.AtrasToolStripMenuItem.Name = "AtrasToolStripMenuItem"
         Me.AtrasToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
-        Me.AtrasToolStripMenuItem.Text = "Atras"
+        Me.AtrasToolStripMenuItem.Text = "Back"
         '
         'Mapa
         '

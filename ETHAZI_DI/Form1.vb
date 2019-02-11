@@ -11,11 +11,8 @@ Public Class Form1
     Dim passwords As New ArrayList
     Dim ojito As Boolean = True
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-        'If TextBox1.Text = "" Then
-        '    Form2.Show()
-        '    Me.Hide()
-        'End If
+        'Se hacen unas comprobaciones para verificar si el usuario en cuestion se encuentra en la base de datos o no
+        
 
         Dim sqlcmd As New MySqlCommand(sql, conexion)
         Dim cadena As String = ""
@@ -59,6 +56,7 @@ Public Class Form1
     End Sub
     
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Creo un arraylist de usuarios y uno de contraseñas para compararlos con los que mete
         form_center(Me)
         Me.TextBox2.PasswordChar = "*"
 
@@ -108,6 +106,7 @@ Public Class Form1
     End Sub
 
     Function encriptar(pass As String) As String
+        'Aqui se encripta la contraseña
         Dim SHA256 As SHA256 = SHA256Managed.Create()
         Dim hash() As Byte = SHA256.ComputeHash(Encoding.UTF8.GetBytes(pass))
 
@@ -121,6 +120,7 @@ Public Class Form1
     End Function
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        'Dependiendo si la imagen del ojo esta abierto o cerrado se mostrara o no la contraseña
         If ojito Then
             PictureBox2.Image = My.Resources.pupila_del_ojo
             TextBox2.PasswordChar = ""

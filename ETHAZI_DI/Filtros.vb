@@ -40,6 +40,7 @@ Public Class Filtros
     End Sub
 
     Private Sub Filtros_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        'Para centrar los furmularios
         If e.KeyCode = Keys.Escape Then
             Me.Close()
             Form2.Show()
@@ -77,12 +78,14 @@ Public Class Filtros
         While dr.Read
             ComboBox3.Items.Add(dr.Item(0))
         End While
+        'Con estas lineas me aseguro de que no puedan escribir en los combobox
         Me.ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
         Me.ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
         Me.ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
 
         Conexion.desconectar()
     End Sub
+    'Metodo para centrar el formulario
     Public Sub form_center(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
 
         Dim x As Integer
@@ -105,20 +108,10 @@ Public Class Filtros
         frm.StartPosition = FormStartPosition.Manual
         frm.Location = New Point(x, y)
     End Sub
-
-    Private Sub ComboBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ComboBox1.KeyPress
-        e.Handled = True
-    End Sub
-
-    Private Sub ComboBox2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ComboBox2.KeyPress
-        e.Handled = True
-    End Sub
-
-    Private Sub ComboBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ComboBox3.KeyPress
-        e.Handled = True
-    End Sub
+  
 
     Private Sub TextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox3.KeyPress
+        'Metodo para controlar la entrada de texto del textbox de capacidad
         If (Asc(e.KeyChar) > 65 And Asc(e.KeyChar) < 90) Or (Asc(e.KeyChar) > 97 And Asc(e.KeyChar) < 122) Then
             e.Handled = True
             MsgBox("Este campo es solo numerico")
@@ -127,7 +120,7 @@ Public Class Filtros
         End If
 
     End Sub
-
+    'Metodos para devolver el valor del combobox a un texto vacio
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         Me.ComboBox3.SelectedIndex = -1
     End Sub
